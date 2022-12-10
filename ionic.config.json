@@ -1,0 +1,7 @@
+{
+  "name": "birdFoot",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
