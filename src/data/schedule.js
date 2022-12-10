@@ -33,7 +33,7 @@ export default [
         artist: "Argus Quartet",
         date: "Sunday, March 28, 2021",
         time: "2:30–3:30 PM",
-        image: "Jasper-Quartet-2021.jpg",
+        image: "Argus-Quartet.jpeg",
         program: [
             {
                 artist: "Katherine Balch",
