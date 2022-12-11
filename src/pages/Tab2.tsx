@@ -1,6 +1,8 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
+import ScheduleItem from '../components/ScheduleItem';
 import './Tab2.css';
+import scheduleData from '../data/schedule.js'
 
 const Tab2: React.FC = () => {
   return (
@@ -16,7 +18,10 @@ const Tab2: React.FC = () => {
             <IonTitle size="large">Schedule</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Tab 2 page" />
+        <ScheduleItem 
+          id={1} 
+          title="test" 
+        />
       </IonContent>
     </IonPage>
   );

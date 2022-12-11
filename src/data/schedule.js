@@ -5,7 +5,8 @@ export default [
         artist: "Jasper String Quartet",
         date: "Sunday, March 14, 2021",
         time: "2:30–3:30 PM",
-        image: "Jasper-Quartet-2021.jpg",
+        location: "Online",
+        imageFile: "Jasper-Quartet-2021.jpg",
         program: [
             {
                 artist: "Antonín Dvořák",
@@ -33,7 +34,8 @@ export default [
         artist: "Argus Quartet",
         date: "Sunday, March 28, 2021",
         time: "2:30–3:30 PM",
-        image: "Argus-Quartet.jpeg",
+        location: "Online",
+        imageFile: "Argus-Quartet.jpeg",
         program: [
             {
                 artist: "Katherine Balch",

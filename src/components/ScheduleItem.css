@@ -1,0 +1,35 @@
+.schedItem {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 1.25em;
+    padding: 1em 0;
+    border-bottom: solid .5px rgba(0,0,0,.1);
+}
+
+.schedItem__img {
+    flex-basis: 125px;
+    width: 100%;
+}
+
+.schedItem__body {
+    text-align: left;
+}
+
+.schedItem__body-location {
+    display: flex;
+    gap: .5em;
+    align-items: center;
+}
+
+.schedItem__body-title {
+    margin: .25em 0 .65em 0;
+}
+
+.schedItem__body-dates {
+    font-weight: 700;
+}
+
+.schedItem__body-desc {
+    line-height: .9375rem;
+    margin-bottom: 0;
+}
