@@ -1,9 +1,13 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ScheduleItem from '../components/ScheduleItem';
 import './Tab2.css';
-import scheduleData from '../data/schedule.js'
+import { scheduleData } from '../data/schedule.js'
 
 const Tab2: React.FC = () => {
+
+  function testFn(x: string) {
+    alert(`item ${x} clicked`)
+  }
 
   const schedule = scheduleData.map(item => {
     return (
@@ -15,7 +19,8 @@ const Tab2: React.FC = () => {
         imageFile={item.imageFile}
         perfLocation={item.location}
         time={item.time}
-        title={item.title} 
+        title={item.title}
+        handleClick={() => testFn(item.id)}
       />
     )
   })

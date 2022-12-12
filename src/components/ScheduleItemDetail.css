@@ -1,18 +1,33 @@
-.schedItem {
+/* .schedItem {
     display: grid;
     grid-template-columns: 40% 60%;
     gap: 1.25em;
     padding: 1.25em .5em;
     border-bottom: solid .5px rgba(0,0,0,.1);
+} */
+
+.schedItemDetail__toolbar {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
-.schedItem:last-child {
-    border-bottom: none;
+.schedItemDetail {
+    position: relative;
+    top: 10%;
+    height: 90%;
+    width: 100%;
+    border: solid 2px rgba(0,0,0,.1);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    /* box-shadow: 0px -2px 10px lightgray; */
 }
 
-.schedItem__img {
-    flex-basis: 125px;
-    border-radius: 10px;
+.scheduleItemDetail__body {
+    border-radius: 15px;
+}
+
+.schedItemDetail__img {
+    height: 200px;
     /* width: 100%; */
 }
 
