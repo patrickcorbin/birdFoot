@@ -1,34 +1,38 @@
 import { IonIcon } from '@ionic/react';
 import { location } from 'ionicons/icons';
-import { title } from 'process';
 import './ScheduleItem.css';
 
 interface ContainerProps {
   id: number;
+  artist: string;
+  date: string;
+  imageFile: string;
+  perfLocation: string;
+  time: string;
   title: string;
 }
 
-const ScheduleItem: React.FC<ContainerProps> = ({ id, title }) => {
+const ScheduleItem: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title }) => {
   return (
     <div className="schedItem">
-      <img className="schedItem__img" src={`./assets/images/Jasper-Quartet-2021.jpg`} alt="Mount Fuji" />
+      <img className="schedItem__img" src={`./assets/images/${imageFile}`} alt="Mount Fuji" />
       <div className="schedItem__body">
-          <div className="schedItem__body-location">
-            <IonIcon icon={location} />
-              <span className="location-text">Online</span>
-              <a className="location-link" href="#">
-                  View on Google Maps
-              </a>
-          </div>
           <h2 className="schedItem__body-title">
               {title}
           </h2>
-          <p className="schedItem__body-dates">
-              date
+          <p className="schedItem__body-artist">
+              {artist}
           </p>
-          <p className="schedItem__body-desc">
-              description
+          <p className="schedItem__body-date">
+              {date}
           </p>
+          <p className="schedItem__body-date">
+              {time}
+          </p>
+          <div className="schedItem__body-location">
+            <IonIcon className="icon-purple" icon={location} />
+              <span className="location-text">{perfLocation}</span>
+          </div>
       </div>
     </div>
   );

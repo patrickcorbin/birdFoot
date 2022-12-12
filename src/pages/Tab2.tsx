@@ -1,10 +1,25 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import ScheduleItem from '../components/ScheduleItem';
 import './Tab2.css';
 import scheduleData from '../data/schedule.js'
 
 const Tab2: React.FC = () => {
+
+  const schedule = scheduleData.map(item => {
+    return (
+      <ScheduleItem 
+        key={item.id}
+        id={item.id}
+        artist={item.artist}
+        date={item.date}
+        imageFile={item.imageFile}
+        perfLocation={item.location}
+        time={item.time}
+        title={item.title} 
+      />
+    )
+  })
+
   return (
     <IonPage className="demo-body">
       <IonHeader>
@@ -18,10 +33,7 @@ const Tab2: React.FC = () => {
             <IonTitle size="large">Schedule</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ScheduleItem 
-          id={1} 
-          title="test" 
-        />
+        {schedule}
       </IonContent>
     </IonPage>
   );
