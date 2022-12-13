@@ -1,4 +1,4 @@
-import { IonHeader, IonIcon, IonToolbar, IonTitle, IonContent, IonButtons, IonButton } from '@ionic/react';
+import { IonHeader, IonIcon, IonToolbar, IonButtons, IonButton } from '@ionic/react';
 import { close, location } from 'ionicons/icons';
 import './ScheduleItemDetail.css';
 
@@ -11,15 +11,22 @@ interface ContainerProps {
     time: string;
     title: string;
     program: Array<any>;
+    description: Array<any>;
+    handleClose?: any;
   }
   
-  const ScheduleItemDetail: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title, program }) => {
+  const ScheduleItemDetail: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title, program, description, handleClose }) => {
+    
+    const programDisplay = program.map(prog => <p><b>{prog.artist}:</b> {prog.piece}</p> )
+
+    const descriptionDisplay = description.map(desc => <p>{desc}</p>)
+    
     return (
       <div className="schedItemDetail">
         <IonHeader>
             <IonToolbar className="schedItemDetail__toolbar">
                 <IonButtons slot="end">
-                    <IonButton shape="round">
+                    <IonButton onClick={handleClose} shape="round">
                         <IonIcon icon={close} />
                     </IonButton>
                 </IonButtons>
@@ -43,8 +50,8 @@ interface ContainerProps {
             </div>
             <h3>Program:</h3>
             <p>Selections from</p>
-            {program.map(prog => <p><b>{prog.artist}:</b> {prog.piece}</p> )}
-            <p>test</p>
+            {programDisplay}
+            {descriptionDisplay}
         </div>
       </div>
     );

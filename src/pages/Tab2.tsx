@@ -1,12 +1,22 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { useState } from 'react';
 import ScheduleItem from '../components/ScheduleItem';
+import ScheduleItemDetail from '../components/ScheduleItemDetail';
 import './Tab2.css';
 import { scheduleData } from '../data/schedule.js'
 
 const Tab2: React.FC = () => {
 
-  function testFn(x: string) {
-    alert(`item ${x} clicked`)
+  const [schedDetailId, setSchedDetailId] = useState<string>('')
+
+  const schedDetailEl = scheduleData.filter(sched => sched.id === schedDetailId)
+
+  function showSchedDetail(x: string) {
+    setSchedDetailId(x)
+  }
+
+  function closeSchedDetail() {
+    setSchedDetailId('')
   }
 
   const schedule = scheduleData.map(item => {
@@ -20,7 +30,7 @@ const Tab2: React.FC = () => {
         perfLocation={item.location}
         time={item.time}
         title={item.title}
-        handleClick={() => testFn(item.id)}
+        handleClick={() => showSchedDetail(item.id)}
       />
     )
   })
@@ -38,7 +48,21 @@ const Tab2: React.FC = () => {
             <IonTitle size="large">Schedule</IonTitle>
           </IonToolbar>
         </IonHeader>
-        {schedule}
+        <div className="schedule-container">
+          {schedule}
+        </div>
+        {schedDetailId && <ScheduleItemDetail 
+          id={schedDetailEl[0].id}
+          artist={schedDetailEl[0].artist}
+          date={schedDetailEl[0].date}
+          imageFile={schedDetailEl[0].imageFile}
+          perfLocation={schedDetailEl[0].location}
+          time={schedDetailEl[0].time}
+          title={schedDetailEl[0].title}
+          program={schedDetailEl[0].program}
+          description={schedDetailEl[0].description}
+          handleClose={closeSchedDetail}
+        />}
       </IonContent>
     </IonPage>
   );
