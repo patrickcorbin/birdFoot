@@ -28,6 +28,7 @@ const Tab3: React.FC = () => {
           perfLocation={scheduleData[0].location}
           time={scheduleData[0].time}
           title={scheduleData[0].title}
+          program={scheduleData[0].program}
         />
       </IonContent>
     </IonPage>

@@ -10,9 +10,10 @@ interface ContainerProps {
     perfLocation: string;
     time: string;
     title: string;
+    program: Array<any>;
   }
   
-  const ScheduleItemDetail: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title }) => {
+  const ScheduleItemDetail: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title, program }) => {
     return (
       <div className="schedItemDetail">
         <IonHeader>
@@ -29,19 +30,21 @@ interface ContainerProps {
             <h2 className="schedItemDetail__body-title">
                 {title}
             </h2>
-            <p className="schedItemDetail__body-artist">
+            <h3 className="schedItemDetail__body-artist">
                 {artist}
-            </p>
-            <p className="schedItemDetail__body-date">
-                {date}
-            </p>
-            <p className="schedItem__body-date">
-                {time}
-            </p>
+            </h3>
+            <div className="schedItemDetail__body-date">
+                <div>{date}</div>
+                <div>{time}</div>
+            </div>
             <div className="schedItemDetail__body-location">
               <IonIcon className="icon-purple" icon={location} />
               <span className="location-text">{perfLocation}</span>
             </div>
+            <h3>Program:</h3>
+            <p>Selections from</p>
+            {program.map(prog => <p><b>{prog.artist}:</b> {prog.piece}</p> )}
+            <p>test</p>
         </div>
       </div>
     );
