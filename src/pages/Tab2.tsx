@@ -5,7 +5,12 @@ import ScheduleItemDetail from '../components/ScheduleItemDetail';
 import './Tab2.css';
 import { scheduleData } from '../data/schedule.js'
 
-const Tab2: React.FC = () => {
+interface ContainerProps {
+  myFavorites: Array<any>;
+  addFavorite: any;
+}
+
+const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite }) => {
 
   const [schedDetailId, setSchedDetailId] = useState<string>('')
 
@@ -34,8 +39,9 @@ const Tab2: React.FC = () => {
         perfLocation={item.location}
         time={item.time}
         title={item.title}
+        isFavorite={myFavorites.includes(item.id)}
         handleClick={() => showSchedDetail(item.id)}
-        handleAdd={() => testFn(item.id)}
+        handleAdd={() => addFavorite(item.id)}
       />
     )
   })

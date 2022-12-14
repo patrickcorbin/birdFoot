@@ -33,6 +33,13 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites }) => {
     alert(`item ${x} added`)
   }
 
+  const scheduleDataArr = scheduleData.map(item => {
+    return {
+      ...item,
+      isFavorite: myFavorites.includes(item.id)
+    }
+  })
+
   const schedule = myFavoriteArr.map(item => {
     return (
       <ScheduleItem 
@@ -44,6 +51,7 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites }) => {
         perfLocation={item.location}
         time={item.time}
         title={item.title}
+        isFavorite={true}
         handleClick={() => showSchedDetail(item.id)}
         handleAdd={() => testFn(item.id)}
       />

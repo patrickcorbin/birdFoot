@@ -1,5 +1,5 @@
 import { IonIcon } from '@ionic/react';
-import { heartOutline, location } from 'ionicons/icons';
+import { heart, heartOutline, location } from 'ionicons/icons';
 import './ScheduleItem.css';
 
 interface ContainerProps {
@@ -10,11 +10,12 @@ interface ContainerProps {
   perfLocation: string;
   time: string;
   title: string;
+  isFavorite: boolean;
   handleClick: any;
   handleAdd: any;
 }
 
-const ScheduleItem: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title, handleClick, handleAdd }) => {
+const ScheduleItem: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title, isFavorite, handleClick, handleAdd }) => {
   return (
     <div className="schedItem">
       <img className="schedItem__img" src={`./assets/images/${imageFile}`} alt={artist} onClick={handleClick} />
@@ -37,7 +38,7 @@ const ScheduleItem: React.FC<ContainerProps> = ({ id, artist, date, imageFile, p
           </div>
       </div>
       <div className="add-container" onClick={handleAdd}>
-        <IonIcon className="add-icon icon-purple" icon={heartOutline} />
+        <IonIcon className="add-icon icon-purple" icon={isFavorite ? heart : heartOutline} />
       </div>
     </div>
   );
