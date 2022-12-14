@@ -19,6 +19,10 @@ const Tab2: React.FC = () => {
     setSchedDetailId('')
   }
 
+  function testFn(x: string) {
+    alert(`item ${x} added`)
+  }
+
   const schedule = scheduleData.map(item => {
     return (
       <ScheduleItem 
@@ -31,6 +35,7 @@ const Tab2: React.FC = () => {
         time={item.time}
         title={item.title}
         handleClick={() => showSchedDetail(item.id)}
+        handleAdd={() => testFn(item.id)}
       />
     )
   })

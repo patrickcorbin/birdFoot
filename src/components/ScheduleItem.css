@@ -1,8 +1,11 @@
 .schedItem {
     display: grid;
-    grid-template-columns: 40% 60%;
-    gap: 1.25em;
-    padding: 1.25em .5em;
+    grid-template-columns: 30% 55% 15%;
+    grid-template-areas: 
+        "img body add"
+        "date date add";
+    column-gap: 1.25em;
+    padding: 1.25em 1em;
     border-bottom: solid .5px rgba(0,0,0,.1);
 }
 
@@ -14,34 +17,49 @@
     flex-basis: 125px;
     border-radius: 10px;
     /* width: 100%; */
+    grid-area: img;
 }
 
 .schedItem__body {
     text-align: left;
+    grid-area: body;
 }
 
 .schedItem__body-location {
     display: flex;
     gap: .5em;
     align-items: center;
+    font-size: .9rem;
 }
 
 .schedItem__body-title {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 500;
-    margin: 0 0 .3em 0;
+    margin: 0 0 .2em 0;
+    flex-wrap: wrap;
 }
 
 .schedItem__body-artist {
     font-size: 1rem;
-    margin: .3em 0;
+    margin: .2em 0;
 }
 
 .schedItem__body-date {
+    font-size: .9rem;
     margin: .2em 0;
     opacity: .65;
+
 }
 
 .icon-purple {
     color: #830053;
+}
+
+.add-container {
+    display: flex;
+    align-items: center;
+}
+
+.add-icon {
+    font-size: 1.5rem;
 }
