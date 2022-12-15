@@ -10,7 +10,8 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { useState } from 'react';
+// import { Storage } from '@ionic/storage';
+import { useEffect, useState } from 'react';
 import { calendar, heart, home, informationCircle } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
@@ -40,10 +41,15 @@ setupIonicReact();
 
 const App: React.FC = () => {
 
-  const [myFavorites, setMyFavorites] = useState<Array<string>>([
-    "B4MVBK2MMZPFEXRW4K7VU4BCSQA0PY",
-    "PVNGBKTKZA85W8MKDLLR8TD38V23CW"
-  ])
+  const [myFavorites, setMyFavorites] = useState<(string | null)[]>(
+    JSON.parse(localStorage.getItem('myFavorites') || "")
+  )
+
+  useEffect(() => {
+    localStorage.setItem('myFavorites', JSON.stringify(myFavorites))
+  }, [myFavorites])
+
+  // const testFavorites = ["B4MVBK2MMZPFEXRW4K7VU4BCSQA0PY","PVNGBKTKZA85W8MKDLLR8TD38V23CW"]
 
   function addFavorite(id: string) {
     setMyFavorites(prevMyFavorites => [...prevMyFavorites, id])
