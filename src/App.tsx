@@ -47,10 +47,11 @@ const App: React.FC = () => {
 
   function addFavorite(id: string) {
     setMyFavorites(prevMyFavorites => [...prevMyFavorites, id])
-    console.log('test')
   }
 
-  console.log('page load')
+  function removeFavorite(id: string) {
+    setMyFavorites(prevMyFavorites => prevMyFavorites.filter(fav => fav !== id))
+  }
 
   return (
     <IonApp>
@@ -63,11 +64,16 @@ const App: React.FC = () => {
             <Route exact path="/tab2">
               <Tab2 
                 myFavorites={myFavorites}
-                addFavorite={() => addFavorite}
+                addFavorite={addFavorite}
+                removeFavorite={removeFavorite}
               />
             </Route>
             <Route path="/tab3">
-              <Tab3 myFavorites={myFavorites} />
+              <Tab3
+                myFavorites={myFavorites}
+                addFavorite={addFavorite}
+                removeFavorite={removeFavorite}
+              />
             </Route>
             <Route path="/info">
               <Info />

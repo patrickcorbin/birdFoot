@@ -7,9 +7,11 @@ import { scheduleData } from '../data/schedule.js'
 
 interface ContainerProps {
   myFavorites: Array<any>;
+  addFavorite: any;
+  removeFavorite: any;
 }
 
-const Tab3: React.FC<ContainerProps> = ({ myFavorites }) => {
+const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavorite }) => {
 
   const [schedDetailId, setSchedDetailId] = useState<string>('')
   // const [myFavorites, setMyFavorites] = useState<Array<string>>([
@@ -29,16 +31,16 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites }) => {
     setSchedDetailId('')
   }
 
-  function testFn(x: string) {
-    alert(`item ${x} added`)
-  }
+  // function testFn(x: string) {
+  //   alert(`item ${x} added`)
+  // }
 
-  const scheduleDataArr = scheduleData.map(item => {
-    return {
-      ...item,
-      isFavorite: myFavorites.includes(item.id)
-    }
-  })
+  // const scheduleDataArr = scheduleData.map(item => {
+  //   return {
+  //     ...item,
+  //     isFavorite: myFavorites.includes(item.id)
+  //   }
+  // })
 
   const schedule = myFavoriteArr.map(item => {
     return (
@@ -53,7 +55,8 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites }) => {
         title={item.title}
         isFavorite={true}
         handleClick={() => showSchedDetail(item.id)}
-        handleAdd={() => testFn(item.id)}
+        handleAdd={() => addFavorite(item.id)}
+        handleRemove={() => removeFavorite(item.id)}
       />
     )
   })

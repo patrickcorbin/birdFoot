@@ -13,9 +13,10 @@ interface ContainerProps {
   isFavorite: boolean;
   handleClick: any;
   handleAdd: any;
+  handleRemove: any;
 }
 
-const ScheduleItem: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title, isFavorite, handleClick, handleAdd }) => {
+const ScheduleItem: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title, isFavorite, handleClick, handleAdd, handleRemove }) => {
   return (
     <div className="schedItem">
       <img className="schedItem__img" src={`./assets/images/${imageFile}`} alt={artist} onClick={handleClick} />
@@ -37,7 +38,7 @@ const ScheduleItem: React.FC<ContainerProps> = ({ id, artist, date, imageFile, p
             <span className="location-text">{perfLocation}</span>
           </div>
       </div>
-      <div className="add-container" onClick={handleAdd}>
+      <div className="add-container" onClick={isFavorite ? handleRemove : handleAdd}>
         <IonIcon className="add-icon icon-purple" icon={isFavorite ? heart : heartOutline} />
       </div>
     </div>

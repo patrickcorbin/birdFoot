@@ -8,9 +8,10 @@ import { scheduleData } from '../data/schedule.js'
 interface ContainerProps {
   myFavorites: Array<any>;
   addFavorite: any;
+  removeFavorite: any;
 }
 
-const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite }) => {
+const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavorite }) => {
 
   const [schedDetailId, setSchedDetailId] = useState<string>('')
 
@@ -24,9 +25,9 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite }) => {
     setSchedDetailId('')
   }
 
-  function testFn(x: string) {
-    alert(`item ${x} added`)
-  }
+  // function testFn(x: string) {
+  //   alert(`item ${x} added`)
+  // }
 
   const schedule = scheduleData.map(item => {
     return (
@@ -42,6 +43,7 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite }) => {
         isFavorite={myFavorites.includes(item.id)}
         handleClick={() => showSchedDetail(item.id)}
         handleAdd={() => addFavorite(item.id)}
+        handleRemove={() => removeFavorite(item.id)}
       />
     )
   })
