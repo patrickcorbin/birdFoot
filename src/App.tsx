@@ -17,6 +17,7 @@ import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 import Info from './pages/Info';
+import ItemDetail from './pages/ItemDetail';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -74,7 +75,7 @@ const App: React.FC = () => {
                 removeFavorite={removeFavorite}
               />
             </Route>
-            <Route path="/tab3">
+            <Route exact path="/tab3">
               <Tab3
                 myFavorites={myFavorites}
                 addFavorite={addFavorite}
@@ -83,6 +84,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/info">
               <Info />
+            </Route>
+            <Route path="/ItemDetail/:id" >
+              <ItemDetail />
             </Route>
             <Route exact path="/">
               <Redirect to="/tab1" />
