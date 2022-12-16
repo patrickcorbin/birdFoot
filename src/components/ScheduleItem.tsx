@@ -1,4 +1,4 @@
-import { IonIcon } from '@ionic/react';
+import { IonIcon, IonRouterLink } from '@ionic/react';
 import { heart, heartOutline, location } from 'ionicons/icons';
 import './ScheduleItem.css';
 
@@ -19,8 +19,9 @@ interface ContainerProps {
 const ScheduleItem: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title, isFavorite, handleClick, handleAdd, handleRemove }) => {
   return (
     <div className="schedItem">
-      <img className="schedItem__img" src={`./assets/images/${imageFile}`} alt={artist} onClick={handleClick} />
-      <div className="schedItem__body"  onClick={handleClick}>
+      <img className="schedItem__img" src={`./assets/images/${imageFile}`} alt={artist} />
+      <div className="schedItem__body" >
+        <IonRouterLink className="schedItem__link" href={`/ItemDetail/${id}`}>
           <h2 className="schedItem__body-title">
               {title}
           </h2>
@@ -37,6 +38,7 @@ const ScheduleItem: React.FC<ContainerProps> = ({ id, artist, date, imageFile, p
             <IonIcon className="icon-purple" icon={location} />
             <span className="location-text">{perfLocation}</span>
           </div>
+        </IonRouterLink>
       </div>
       <div className="add-container" onClick={isFavorite ? handleRemove : handleAdd}>
         <IonIcon className="add-icon icon-purple" icon={isFavorite ? heart : heartOutline} />

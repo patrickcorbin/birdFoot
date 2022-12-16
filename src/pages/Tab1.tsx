@@ -1,4 +1,4 @@
-import { IonContent, IonItem, IonLabel, IonList, IonPage, IonRouterOutlet } from '@ionic/react';
+import { IonContent, IonItem, IonLabel, IonList, IonPage } from '@ionic/react';
 // import { RouteComponentProps } from 'react-router-dom';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';

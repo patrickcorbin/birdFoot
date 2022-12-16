@@ -25,6 +25,10 @@
     grid-area: body;
 }
 
+.schedItem__link {
+    color: var(--ion-text-color);
+}
+
 .schedItem__body-location {
     display: flex;
     gap: .5em;
