@@ -12,12 +12,12 @@ interface ContainerProps {
   time: string;
   title: string;
   isFavorite: boolean;
-  handleClick: any;
+  handleClick?: any;
   handleAdd: any;
   handleRemove: any;
 }
 
-const ScheduleItem: React.FC<ContainerProps> = ({ id, parentPage, artist, date, imageFile, perfLocation, time, title, isFavorite, handleClick, handleAdd, handleRemove }) => {
+const ScheduleItem: React.FC<ContainerProps> = ({ id, parentPage, artist, date, imageFile, perfLocation, time, title, isFavorite, handleAdd, handleRemove }) => {
   return (
     <div className="schedItem">
       <img className="schedItem__img" src={`./assets/images/${imageFile}`} alt={artist} />

@@ -6,11 +6,13 @@ import { scheduleData } from '../data/schedule.js'
 import { useParams } from 'react-router';
 import ScheduleItemDetail from '../components/ScheduleItemDetail';
 
-// interface ItemDetailPageProps extends RouteComponentProps<{
-//     id: string;
-//   }> {}
+interface ContainerProps {
+    myFavorites: Array<any>;
+    addFavorite: any;
+    removeFavorite: any;
+  }
 
-const FavItemDetail: React.FC = () => {
+const FavItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavorite }) => {
 
     let { id } = useParams<{ id: string}>();
 
@@ -28,7 +30,7 @@ const FavItemDetail: React.FC = () => {
             </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding demo-container" fullscreen>
-            {/* <ScheduleItemDetail
+            <ScheduleItemDetail
                 id={id}
                 artist={artist}
                 date={date}
@@ -38,8 +40,10 @@ const FavItemDetail: React.FC = () => {
                 title={title}
                 program={program}
                 description={description}
-                isFavorite={false}
-            /> */}
+                isFavorite={myFavorites.includes(id)}
+                handleAdd={() => addFavorite(id)}
+                handleRemove={() => removeFavorite(id)}
+            />
         </IonContent>
     </IonPage>
   );

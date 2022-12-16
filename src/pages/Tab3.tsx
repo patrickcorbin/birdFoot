@@ -1,7 +1,7 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { useState } from 'react';
+// import { useState } from 'react';
 import ScheduleItem from '../components/ScheduleItem';
-import ScheduleItemDetail from '../components/ScheduleItemDetail';
+// import ScheduleItemDetail from '../components/ScheduleItemDetail';
 import './Tab3.css';
 import { scheduleData } from '../data/schedule.js'
 import NoFavoriteContainer from '../components/NoFavoriteContainer';
@@ -14,26 +14,22 @@ interface ContainerProps {
 
 const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavorite }) => {
 
-  const [schedDetailId, setSchedDetailId] = useState<string>('')
+  // const [schedDetailId, setSchedDetailId] = useState<string>('')
   // const [myFavorites, setMyFavorites] = useState<Array<string>>([
   //   "B4MVBK2MMZPFEXRW4K7VU4BCSQA0PY",
   //   "PVNGBKTKZA85W8MKDLLR8TD38V23CW"
   // ])
 
-  const schedDetailEl = scheduleData.filter(sched => sched.id === schedDetailId)
+  // const schedDetailEl = scheduleData.filter(sched => sched.id === schedDetailId)
 
   let myFavoriteArr = scheduleData.filter(sched => myFavorites.includes(sched.id))
 
-  function showSchedDetail(x: string) {
-    setSchedDetailId(x)
-  }
+  // function showSchedDetail(x: string) {
+  //   setSchedDetailId(x)
+  // }
 
-  function closeSchedDetail() {
-    setSchedDetailId('')
-  }
-
-  // function testFn(x: string) {
-  //   alert(`item ${x} added`)
+  // function closeSchedDetail() {
+  //   setSchedDetailId('')
   // }
 
   // const scheduleDataArr = scheduleData.map(item => {
@@ -56,7 +52,7 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
         time={item.time}
         title={item.title}
         isFavorite={true}
-        handleClick={() => showSchedDetail(item.id)}
+        // handleClick={() => showSchedDetail(item.id)}
         handleAdd={() => addFavorite(item.id)}
         handleRemove={() => removeFavorite(item.id)}
       />
