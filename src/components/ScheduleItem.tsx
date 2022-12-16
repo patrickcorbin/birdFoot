@@ -4,6 +4,7 @@ import './ScheduleItem.css';
 
 interface ContainerProps {
   id?: string;
+  parentPage?: string;
   artist: string;
   date: string;
   imageFile: string;
@@ -16,12 +17,12 @@ interface ContainerProps {
   handleRemove: any;
 }
 
-const ScheduleItem: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title, isFavorite, handleClick, handleAdd, handleRemove }) => {
+const ScheduleItem: React.FC<ContainerProps> = ({ id, parentPage, artist, date, imageFile, perfLocation, time, title, isFavorite, handleClick, handleAdd, handleRemove }) => {
   return (
     <div className="schedItem">
       <img className="schedItem__img" src={`./assets/images/${imageFile}`} alt={artist} />
       <div className="schedItem__body" >
-        <IonRouterLink className="schedItem__link" href={`/tab2/ItemDetail/${id}`}>
+        <IonRouterLink className="schedItem__link" href={`/${parentPage}/${parentPage === 'tab3' ? 'FavItemDetail' : 'ItemDetail'}/${id}`}>
           <h2 className="schedItem__body-title">
               {title}
           </h2>

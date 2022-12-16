@@ -1,0 +1,23 @@
+.no-fav-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 30vh;
+  }
+  
+  .no-fav-container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  .no-fav-container p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #8c8c8c;
+    margin: 0;
+  }
+  
+  .no-fav-container a {
+    text-decoration: none;
+  }

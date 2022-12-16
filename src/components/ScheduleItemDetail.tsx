@@ -1,5 +1,5 @@
-import { IonHeader, IonIcon, IonToolbar, IonButtons, IonButton } from '@ionic/react';
-import { close, location } from 'ionicons/icons';
+import { IonIcon } from '@ionic/react';
+import { heart, heartOutline, location } from 'ionicons/icons';
 import './ScheduleItemDetail.css';
 
 interface ContainerProps {
@@ -12,10 +12,14 @@ interface ContainerProps {
     title: string;
     program: Array<any>;
     description: Array<any>;
+    handleAdd: any;
+    handleRemove: any;
+    isFavorite: boolean;
+
     handleClose?: any;
   }
   
-  const ScheduleItemDetail: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title, program, description, handleClose }) => {
+  const ScheduleItemDetail: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title, program, description, isFavorite, handleAdd, handleRemove }) => {
     
     const programDisplay = program.map(prog => <p>{prog.artist && (<b>{prog.artist}:</b>)} {prog.piece}</p> )
 
@@ -23,7 +27,7 @@ interface ContainerProps {
     
     return (
       <div className="schedItemDetail">
-        <IonHeader>
+        {/* <IonHeader>
             <IonToolbar className="schedItemDetail__toolbar">
                 <IonButtons slot="end">
                     <IonButton onClick={handleClose} shape="round">
@@ -31,12 +35,19 @@ interface ContainerProps {
                     </IonButton>
                 </IonButtons>
             </IonToolbar>
-        </IonHeader>
+        </IonHeader> */}
         <img className="schedItemDetail__img" src={`./assets/images/${imageFile}`} alt={artist} />
         <div className="schedItemDetail__body">
-            <h2 className="schedItemDetail__body-title">
-                {title}
-            </h2>
+            <div className="schedItemDetail__body-title">
+              <h2>
+                  {title}
+              </h2>
+              <IonIcon 
+                className="add-icon icon-purple" 
+                onClick={isFavorite ? handleRemove : handleAdd}
+                icon={isFavorite ? heart : heartOutline} 
+              />
+            </div>
             <h3 className="schedItemDetail__body-artist">
                 {artist}
             </h3>

@@ -4,6 +4,7 @@ import ScheduleItem from '../components/ScheduleItem';
 import ScheduleItemDetail from '../components/ScheduleItemDetail';
 import './Tab3.css';
 import { scheduleData } from '../data/schedule.js'
+import NoFavoriteContainer from '../components/NoFavoriteContainer';
 
 interface ContainerProps {
   myFavorites: Array<any>;
@@ -47,6 +48,7 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
       <ScheduleItem 
         key={item.id}
         id={item.id}
+        parentPage={'tab3'}
         artist={item.artist}
         date={item.date}
         imageFile={item.imageFile}
@@ -75,20 +77,12 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
           </IonToolbar>
         </IonHeader>
         <div className="schedule-container">
-          {schedule}
+          {
+            myFavoriteArr.length > 0 ?
+            schedule :
+            <NoFavoriteContainer />
+          }
         </div>
-        {schedDetailId && <ScheduleItemDetail 
-          id={schedDetailEl[0].id}
-          artist={schedDetailEl[0].artist}
-          date={schedDetailEl[0].date}
-          imageFile={schedDetailEl[0].imageFile}
-          perfLocation={schedDetailEl[0].perfLocation}
-          time={schedDetailEl[0].time}
-          title={schedDetailEl[0].title}
-          program={schedDetailEl[0].program}
-          description={schedDetailEl[0].description}
-          handleClose={closeSchedDetail}
-        />}
       </IonContent>
     </IonPage>
   );

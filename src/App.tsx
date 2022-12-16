@@ -76,10 +76,21 @@ const App: React.FC = () => {
               />
             </Route>
             <Route path="/tab2/ItemDetail/:id" >
-              <ItemDetail />
+              <ItemDetail 
+                myFavorites={myFavorites}
+                addFavorite={addFavorite}
+                removeFavorite={removeFavorite}
+              />
             </Route>
             <Route exact path="/tab3">
               <Tab3
+                myFavorites={myFavorites}
+                addFavorite={addFavorite}
+                removeFavorite={removeFavorite}
+              />
+            </Route>
+            <Route path="/tab3/FavItemDetail/:id" >
+              <ItemDetail 
                 myFavorites={myFavorites}
                 addFavorite={addFavorite}
                 removeFavorite={removeFavorite}

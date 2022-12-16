@@ -34,6 +34,7 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
       <ScheduleItem 
         key={item.id}
         id={item.id}
+        parentPage={'tab2'}
         artist={item.artist}
         date={item.date}
         imageFile={item.imageFile}
@@ -64,18 +65,6 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
         <div className="schedule-container">
           {schedule}
         </div>
-        {schedDetailId && <ScheduleItemDetail 
-          id={schedDetailEl[0].id}
-          artist={schedDetailEl[0].artist}
-          date={schedDetailEl[0].date}
-          imageFile={schedDetailEl[0].imageFile}
-          perfLocation={schedDetailEl[0].perfLocation}
-          time={schedDetailEl[0].time}
-          title={schedDetailEl[0].title}
-          program={schedDetailEl[0].program}
-          description={schedDetailEl[0].description}
-          handleClose={closeSchedDetail}
-        />}
       </IonContent>
     </IonPage>
   );
