@@ -21,7 +21,7 @@ const ScheduleItem: React.FC<ContainerProps> = ({ id, artist, date, imageFile, p
     <div className="schedItem">
       <img className="schedItem__img" src={`./assets/images/${imageFile}`} alt={artist} />
       <div className="schedItem__body" >
-        <IonRouterLink className="schedItem__link" href={`/ItemDetail/${id}`}>
+        <IonRouterLink className="schedItem__link" href={`/tab2/ItemDetail/${id}`}>
           <h2 className="schedItem__body-title">
               {title}
           </h2>

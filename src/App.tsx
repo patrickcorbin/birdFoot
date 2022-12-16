@@ -75,6 +75,9 @@ const App: React.FC = () => {
                 removeFavorite={removeFavorite}
               />
             </Route>
+            <Route path="/tab2/ItemDetail/:id" >
+              <ItemDetail />
+            </Route>
             <Route exact path="/tab3">
               <Tab3
                 myFavorites={myFavorites}
@@ -84,9 +87,6 @@ const App: React.FC = () => {
             </Route>
             <Route path="/info">
               <Info />
-            </Route>
-            <Route path="/ItemDetail/:id" >
-              <ItemDetail />
             </Route>
             <Route exact path="/">
               <Redirect to="/tab1" />

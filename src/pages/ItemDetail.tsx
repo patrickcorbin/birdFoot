@@ -1,4 +1,4 @@
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonToolbar, useIonRouter } from '@ionic/react';
 import { location } from 'ionicons/icons';
 import './ItemDetail.css';
 import './demo.css';
@@ -14,38 +14,44 @@ const ItemDetail: React.FC = () => {
 
     let { id } = useParams<{ id: string}>();
 
-    let schedItem = scheduleData.filter(sched => sched.id === id)
+    // const router = useIonRouter();
 
-    let programDisplay = schedItem[0].program.map(prog => <p>{prog.artist && (<b>{prog.artist}:</b>)} {prog.piece}</p> )
+    const schedItem = scheduleData.filter(sched => sched.id === id)
 
-    let descriptionDisplay = schedItem[0].description.map(desc => <p>{desc}</p>)
+    const { artist, date, description, imageFile, perfLocation, program, time, title } = schedItem[0]
+
+    // console.log('page rendered')
+
+    let programDisplay = program.map(prog => <p>{prog.artist && (<b>{prog.artist}:</b>)} {prog.piece}</p> )
+
+    let descriptionDisplay = description.map(desc => <p>{desc}</p>)
 
   return (
     <IonPage className="demo-body">
         <IonHeader>
             <IonToolbar>
                 <IonButtons slot="start">
-                    <IonBackButton text="Back" defaultHref='/Tab2'/>
+                    <IonBackButton text="Back" defaultHref='/tab2' />
                 </IonButtons>
             </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding demo-container" fullscreen>
             <div className="itemDetail">
-                <img className="itemDetail__img" src={`./assets/images/${scheduleData[0].imageFile}`} alt={scheduleData[0].artist} />
+                <img className="itemDetail__img" src={`./assets/images/${imageFile}`} alt={artist} />
                 <div className="itemDetail__body">
                     <h2 className="itemDetail__body-title">
-                        {scheduleData[0].title}
+                        {title}
                     </h2>
                     <h3 className="itemDetail__body-artist">
-                        {scheduleData[0].artist}
+                        {artist}
                     </h3>
                     <div className="itemDetail__body-date">
-                        <div>{scheduleData[0].date}</div>
-                        <div>{scheduleData[0].time}</div>
+                        <div>{date}</div>
+                        <div>{time}</div>
                     </div>
                     <div className="itemDetail__body-location">
                     <IonIcon className="icon-purple" icon={location} />
-                    <span className="location-text">{scheduleData[0].perfLocation}</span>
+                    <span className="location-text">{perfLocation}</span>
                     </div>
                     <h3>Program:</h3>
                     <p>Selections from</p>
