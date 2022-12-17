@@ -44,7 +44,7 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
       <ScheduleItem 
         key={item.id}
         id={item.id}
-        parentPage={'tab3'}
+        parentPage={'favorites'}
         artist={item.artist}
         date={item.date}
         imageFile={item.imageFile}

@@ -1,0 +1,43 @@
+.artistItem {
+    padding: 1.25em 1em;
+    border-bottom: solid .5px rgba(0,0,0,.1);
+}
+
+.artistItem__container {
+    display: grid;
+    grid-template-columns: 30% 60%;
+    column-gap: 1.25em;
+    align-items: center;
+}
+
+.artistItem:last-child {
+    border-bottom: none;
+}
+
+.artistItem__img {
+    flex-basis: 125px;
+    border-radius: 10px;
+    /* width: 100%; */
+}
+
+.artistItem__body {
+    text-align: left;
+}
+
+.artistItem__link {
+    color: var(--ion-text-color);
+}
+
+.artistItem__body-location {
+    display: flex;
+    gap: .5em;
+    align-items: center;
+    font-size: .9rem;
+}
+
+.artistItem__body-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0 0 .2em 0;
+    flex-wrap: wrap;
+}

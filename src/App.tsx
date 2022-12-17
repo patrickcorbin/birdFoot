@@ -20,6 +20,9 @@ import Info from './pages/Info';
 import Artists from './pages/Artists';
 import ItemDetail from './pages/ItemDetail';
 import FavItemDetail from './pages/FavItemDetail';
+import ArtistDetail from './pages/ArtistDetail';
+
+import About from './pages/About';
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -68,57 +71,63 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>
-            <Route exact path="/tab1">
+            <Route exact path="/home">
               <Tab1 />
             </Route>
-            <Route exact path="/tab2">
+            <Route exact path="/schedule">
               <Tab2 
                 myFavorites={myFavorites}
                 addFavorite={addFavorite}
                 removeFavorite={removeFavorite}
               />
             </Route>
-            <Route path="/tab2/ItemDetail/:id" >
+            <Route path="/schedule/item/:id" >
               <ItemDetail 
                 myFavorites={myFavorites}
                 addFavorite={addFavorite}
                 removeFavorite={removeFavorite}
               />
             </Route>
-            <Route exact path="/tab3">
+            <Route exact path="/favorites">
               <Tab3
                 myFavorites={myFavorites}
                 addFavorite={addFavorite}
                 removeFavorite={removeFavorite}
               />
             </Route>
-            <Route path="/tab3/FavItemDetail/:id" >
+            <Route path="/favorites/item/:id" >
               <FavItemDetail 
                 myFavorites={myFavorites}
                 addFavorite={addFavorite}
                 removeFavorite={removeFavorite}
               />
             </Route>
-            <Route path="/info">
+            <Route exact path="/info">
               <Info />
             </Route>
-            <Route path="/info/artists" >
+            <Route exact path="/artists" >
               <Artists />
             </Route>
+            <Route path="/artists/:id">
+              <ArtistDetail />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
             <Route exact path="/">
-              <Redirect to="/tab1" />
+              <Redirect to="/home" />
             </Route>
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
-            <IonTabButton tab="tab1" href="/tab1">
+            <IonTabButton tab="tab1" href="/home">
               <IonIcon icon={home} />
               <IonLabel>Home</IonLabel>
             </IonTabButton>
-            <IonTabButton tab="tab2" href="/tab2">
+            <IonTabButton tab="tab2" href="/schedule">
               <IonIcon icon={calendar} />
               <IonLabel>Schedule</IonLabel>
             </IonTabButton>
-            <IonTabButton tab="tab3" href="/tab3">
+            <IonTabButton tab="tab3" href="/favorites">
               <IonIcon icon={heart} />
               <IonLabel>Favorites</IonLabel>
             </IonTabButton>

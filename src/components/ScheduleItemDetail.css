@@ -25,6 +25,7 @@
     padding: 1em;
     /* border-radius: 15px; */
     text-align: left;
+    line-height: 1.3rem;
 }
 
 .schedItemDetail__img {

@@ -230,4 +230,4 @@ const artistData = [
     }
 ]
 
-export { scheduleData }
+export { scheduleData, artistData }

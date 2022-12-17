@@ -25,7 +25,7 @@ const FavItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, rem
         <IonHeader>
             <IonToolbar>
                 <IonButtons slot="start">
-                    <IonBackButton text="Back" defaultHref='/tab3' />
+                    <IonBackButton text="Back" defaultHref='/favorites' />
                 </IonButtons>
             </IonToolbar>
         </IonHeader>

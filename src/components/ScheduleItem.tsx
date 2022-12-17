@@ -22,7 +22,7 @@ const ScheduleItem: React.FC<ContainerProps> = ({ id, parentPage, artist, date, 
     <div className="schedItem">
       <img className="schedItem__img" src={`./assets/images/${imageFile}`} alt={artist} />
       <div className="schedItem__body" >
-        <IonRouterLink className="schedItem__link" href={`/${parentPage}/${parentPage === 'tab3' ? 'FavItemDetail' : 'ItemDetail'}/${id}`}>
+        <IonRouterLink className="schedItem__link" href={`/${parentPage}/${parentPage === 'favorites' ? 'item' : 'item'}/${id}`}>
           <h2 className="schedItem__body-title">
               {title}
           </h2>
