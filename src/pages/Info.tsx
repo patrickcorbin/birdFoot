@@ -17,7 +17,7 @@ const Info: React.FC = () => {
             <IonTitle size="large">Information</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Info page" />
+        {/* <ExploreContainer name="Info page" /> */}
         <IonList>            
           <IonItem routerLink="/artists">
             <IonLabel>Artists</IonLabel>
