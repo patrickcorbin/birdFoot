@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 // import { Storage } from '@ionic/storage';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { calendar, heart, home, informationCircle } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
