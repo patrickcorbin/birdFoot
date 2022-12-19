@@ -50,12 +50,16 @@ setupIonicReact();
 const App: React.FC = () => {
 
   const [myFavorites, setMyFavorites] = useState<(string | null)[]>(
-    JSON.parse(localStorage.getItem('myFavorites') || "")
+    ["B4MVBK2MMZPFEXRW4K7VU4BCSQA0PY","PVNGBKTKZA85W8MKDLLR8TD38V23CW"]
   )
 
-  useEffect(() => {
-    localStorage.setItem('myFavorites', JSON.stringify(myFavorites))
-  }, [myFavorites])
+  // const [myFavorites, setMyFavorites] = useState<(string | null)[]>(
+  //   JSON.parse(localStorage.getItem('myFavorites') || "")
+  // )
+
+  // useEffect(() => {
+  //   localStorage.setItem('myFavorites', JSON.stringify(myFavorites))
+  // }, [myFavorites])
 
   // const testFavorites = ["B4MVBK2MMZPFEXRW4K7VU4BCSQA0PY","PVNGBKTKZA85W8MKDLLR8TD38V23CW"]
 
