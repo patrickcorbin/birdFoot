@@ -72,7 +72,7 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>
-            <Route exact path="/home">
+            <Route path="/home">
               <Tab1 />
             </Route>
             <Route exact path="/schedule">
