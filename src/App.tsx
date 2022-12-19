@@ -18,6 +18,7 @@ import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 import Info from './pages/Info';
 import Artists from './pages/Artists';
+import Sponsors from './pages/Sponsors';
 import ItemDetail from './pages/ItemDetail';
 import FavItemDetail from './pages/FavItemDetail';
 import ArtistDetail from './pages/ArtistDetail';
@@ -113,6 +114,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/about">
               <About />
+            </Route>
+            <Route path="/sponsors">
+              <Sponsors />
             </Route>
             <Route exact path="/">
               <Redirect to="/home" />

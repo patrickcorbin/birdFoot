@@ -1,5 +1,4 @@
-import { IonContent, IonHeader, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonContent, IonHeader, IonItem, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Info.css';
 import './demo.css';
 
@@ -17,20 +16,23 @@ const Info: React.FC = () => {
             <IonTitle size="large">Information</IonTitle>
           </IonToolbar>
         </IonHeader>
-        {/* <ExploreContainer name="Info page" /> */}
         <IonList>            
           <IonItem routerLink="/artists">
-            <IonLabel>Artists</IonLabel>
+            {/* <IonIcon className="icon-purple" icon={search} slot="start" /> */}
+            <h2>Artists</h2>
           </IonItem>
           <IonItem routerLink="/ItemDetail/2">
-            <IonLabel>Locations</IonLabel>
+            <h2>Locations</h2>
           </IonItem>  
           <IonItem routerLink="/about">
-            <IonLabel>About Birdfoot</IonLabel>
+            <h2>About Birdfoot</h2>
           </IonItem>
           <IonItem target="_blank" rel="noopener noreferrer" href='https://birdfootfestival.org/join-us/donate/'>
-            <IonLabel>Donate</IonLabel>
-          </IonItem>      
+            <h2>Donate</h2>
+          </IonItem>
+          <IonItem routerLink="/sponsors">
+            <h2>Our Sponsors</h2>
+          </IonItem>
         </IonList>
       </IonContent>
     </IonPage>
