@@ -18,12 +18,12 @@ import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 import Info from './pages/Info';
 import Artists from './pages/Artists';
+import Locations from './pages/Locations';
+import About from './pages/About';
 import Sponsors from './pages/Sponsors';
 import ItemDetail from './pages/ItemDetail';
 import FavItemDetail from './pages/FavItemDetail';
 import ArtistDetail from './pages/ArtistDetail';
-
-import About from './pages/About';
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -115,6 +115,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/artists/:id">
               <ArtistDetail />
+            </Route>
+            <Route exact path="/locations">
+              <Locations />
             </Route>
             <Route path="/about">
               <About />

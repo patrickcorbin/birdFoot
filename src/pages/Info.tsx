@@ -21,7 +21,7 @@ const Info: React.FC = () => {
             {/* <IonIcon className="icon-purple" icon={search} slot="start" /> */}
             <h2>Artists</h2>
           </IonItem>
-          <IonItem routerLink="/ItemDetail/2">
+          <IonItem routerLink="/locations">
             <h2>Locations</h2>
           </IonItem>  
           <IonItem routerLink="/about">

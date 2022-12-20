@@ -16,7 +16,7 @@ const Tab1: React.FC = () => {
                 Join us on this journey of musical contemplation.
               </p>
             </div>
-            <IonButton color="primary" expand='block' href='#'>
+            <IonButton color="primary" size='large' expand='block' href='#'>
               Purchase Tickets
             </IonButton>
             <img className="bird" src="assets/BF_Bird.png" alt="Birdfoot Bird" />

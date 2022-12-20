@@ -20,7 +20,9 @@ interface ContainerProps {
 const ScheduleItem: React.FC<ContainerProps> = ({ id, parentPage, artist, date, imageFile, perfLocation, time, title, isFavorite, handleAdd, handleRemove }) => {
   return (
     <div className="schedItem">
-      <img className="schedItem__img" src={`./assets/images/${imageFile}`} alt={artist} />
+      <IonRouterLink className="schedItem__link" href={`/${parentPage}/${parentPage === 'favorites' ? 'item' : 'item'}/${id}`}>
+        <img className="schedItem__img" src={`./assets/images/${imageFile}`} alt={artist} />
+      </IonRouterLink>
       <div className="schedItem__body" >
         <IonRouterLink className="schedItem__link" href={`/${parentPage}/${parentPage === 'favorites' ? 'item' : 'item'}/${id}`}>
           <h2 className="schedItem__body-title">
