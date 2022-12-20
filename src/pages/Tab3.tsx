@@ -66,7 +66,7 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
           <IonTitle>Favorites</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="demo-container" fullscreen>
+      <IonContent className=" ion-padding demo-container" fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Favorites</IonTitle>

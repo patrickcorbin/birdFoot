@@ -1,10 +1,10 @@
 .schedItem {
     display: grid;
-    grid-template-columns: 30% 55% 15%;
+    grid-template-columns: 30% 50% 20%;
     grid-template-areas: 
         "img body add"
         "date date add";
-    column-gap: 1.25em;
+    column-gap: 1em;
     padding: 1.25em 1.5em;
     border-bottom: solid .5px rgba(0,0,0,.1);
 }
