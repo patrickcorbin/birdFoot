@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 // import { Storage } from '@ionic/storage';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { calendar, heart, home, informationCircle } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
@@ -57,9 +57,9 @@ const App: React.FC = () => {
     JSON.parse(localStorage.getItem('myFavorites') || "")
   )
 
-  useEffect(() => {
-    localStorage.setItem('myFavorites', JSON.stringify(myFavorites))
-  }, [myFavorites])
+  // useEffect(() => {
+  //   localStorage.setItem('myFavorites', JSON.stringify(myFavorites))
+  // }, [myFavorites])
 
   // const testFavorites = ["B4MVBK2MMZPFEXRW4K7VU4BCSQA0PY","PVNGBKTKZA85W8MKDLLR8TD38V23CW"]
 
