@@ -21,9 +21,9 @@ interface ContainerProps {
   
   const ScheduleItemDetail: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title, program, description, isFavorite, handleAdd, handleRemove }) => {
     
-    const programDisplay = program.map(prog => <p>{prog.artist && (<b>{prog.artist}:</b>)} {prog.piece}</p> )
+    const programDisplay = program.map(prog => <p key={Math.random()}>{prog.artist && (<b>{prog.artist}:</b>)} {prog.piece}</p> )
 
-    const descriptionDisplay = description.map(desc => <p>{desc}</p>)
+    const descriptionDisplay = description.map(desc => <p key={Math.random()}>{desc}</p>)
     
     return (
       <div className="schedItemDetail">
