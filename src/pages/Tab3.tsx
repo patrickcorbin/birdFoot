@@ -1,7 +1,6 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar} from '@ionic/react';
 // import { useState } from 'react';
-import ScheduleItem from '../components/ScheduleItem';
-// import ScheduleItemDetail from '../components/ScheduleItemDetail';
+import ScheduleIonItem from '../components/ScheduleIonItem';
 import './Tab3.css';
 import { scheduleData } from '../data/schedule.js'
 import NoFavoriteContainer from '../components/NoFavoriteContainer';
@@ -41,7 +40,7 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
 
   const schedule = myFavoriteArr.map(item => {
     return (
-      <ScheduleItem 
+      <ScheduleIonItem 
         key={item.id}
         id={item.id}
         parentPage={'favorites'}
@@ -52,12 +51,47 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
         time={item.time}
         title={item.title}
         isFavorite={true}
-        // handleClick={() => showSchedDetail(item.id)}
-        handleAdd={() => addFavorite(item.id)}
-        handleRemove={() => removeFavorite(item.id)}
+        handleAdd={(e: any) => {addFavorite(item.id); e.preventDefault();}}
+        handleRemove={(e: any) => {removeFavorite(item.id); e.preventDefault();}}
       />
     )
   })
+  
+  // const scheduleTest = scheduleData.map(item => {
+  //   return (
+  //     <IonItem 
+  //       className="sched-item" 
+  //       lines='full' 
+  //       detail={false} 
+  //       href={`/favorites/item/${item.id}`}
+  //     >
+  //         <IonThumbnail slot="start">
+  //           <img src={`./assets/images/${item.imageFile}`} alt={item.artist} />
+  //         </IonThumbnail>
+  //         <IonIcon 
+  //           className="icon-purple"
+  //           slot="end"
+  //           icon={myFavorites.includes(item.id) ? heart : heartOutline}
+  //           onClick={myFavorites.includes(item.id) ? (e: any) => {removeFavorite(item.id); e.preventDefault();} : (e: any) => {addFavorite(item.id); e.preventDefault();}}
+  //         ></IonIcon>
+  //         <div className="sched-item__body" >
+  //           <h2 className="sched-item__body-title">
+  //               {item.title}
+  //           </h2>
+  //           <p className="sched-item__body-artist">
+  //               {item.artist}
+  //           </p>
+  //           <p className="sched-item__body-date">
+  //               {item.date}, {item.time}
+  //           </p>
+  //           <div className="sched-item__body-location">
+  //             <IonIcon className="icon-purple" icon={location} />
+  //             <span className="location-text">{item.perfLocation}</span>
+  //           </div>
+  //         </div>
+  //     </IonItem>
+  //   )
+  // })
 
   return (
     <IonPage className="demo-body">
@@ -73,12 +107,14 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
           </IonToolbar>
         </IonHeader>
         <div className="schedule-container">
-          {
+        </div>
+        <IonList>
+        {
             myFavoriteArr.length > 0 ?
             schedule :
             <NoFavoriteContainer />
           }
-        </div>
+        </IonList>
       </IonContent>
     </IonPage>
   );

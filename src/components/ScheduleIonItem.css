@@ -1,18 +1,3 @@
-.schedule-container {
-    position: absolute;
-    padding-bottom: 56px;
-}
-
-ion-thumbnail {
-    /* --size: 140px; */
-    --border-radius: 10px;
-}
-
-ion-item.sched-item {
-    --padding-top: 1em;
-    --padding-bottom: 1em;
-}
-
 .sched-item__body-location {
     display: flex;
     gap: .5em;
@@ -37,13 +22,3 @@ ion-item.sched-item {
     margin: .2em 0;
     opacity: .65;
 }
-
-/* .sched-item__body {
-    text-align: left;
-    grid-area: body;
-}
-
-.sched-item__link {
-    color: var(--ion-text-color);
-} */
-

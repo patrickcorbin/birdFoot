@@ -1,4 +1,4 @@
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Artists.css';
 import ArtistItem from '../components/ArtistItem';
 import { artistData } from '../data/schedule.js'
@@ -26,15 +26,15 @@ const Artists: React.FC = () => {
             <IonTitle>Artists</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonContent className="demo-container" fullscreen>
+        <IonContent className="ion-padding demo-container" fullscreen>
           <IonHeader collapse="condense">
             <IonToolbar>
               <IonTitle size="large">Artists</IonTitle>
             </IonToolbar>
           </IonHeader>
-          <div className="schedule-container">
+          <IonList>
             {artists}
-          </div>
+          </IonList>          
         </IonContent>
       </IonPage>
     );

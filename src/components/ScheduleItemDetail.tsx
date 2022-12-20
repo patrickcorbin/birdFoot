@@ -45,8 +45,8 @@ interface ContainerProps {
               <IonIcon 
                 className="add-icon icon-purple" 
                 onClick={isFavorite ? handleRemove : handleAdd}
-                icon={isFavorite ? heart : heartOutline} 
-              />
+                icon={isFavorite ? heart : heartOutline}
+              ></IonIcon>
             </div>
             <h3 className="schedItemDetail__body-artist">
                 {artist}

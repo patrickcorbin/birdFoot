@@ -1,6 +1,6 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 // import { useState } from 'react';
-import ScheduleItem from '../components/ScheduleItem';
+import ScheduleIonItem from '../components/ScheduleIonItem';
 // import ScheduleItemDetail from '../components/ScheduleItemDetail';
 import './Tab2.css';
 import { scheduleData } from '../data/schedule.js'
@@ -31,7 +31,7 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
 
   const schedule = scheduleData.map(item => {
     return (
-      <ScheduleItem 
+      <ScheduleIonItem 
         key={item.id}
         id={item.id}
         parentPage={'schedule'}
@@ -42,9 +42,8 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
         time={item.time}
         title={item.title}
         isFavorite={myFavorites.includes(item.id)}
-        // handleClick={() => showSchedDetail(item.id)}
-        handleAdd={() => addFavorite(item.id)}
-        handleRemove={() => removeFavorite(item.id)}
+        handleAdd={(e: any) => {addFavorite(item.id); e.preventDefault();}}
+        handleRemove={(e: any) => {removeFavorite(item.id); e.preventDefault();}}
       />
     )
   })
@@ -63,8 +62,11 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
           </IonToolbar>
         </IonHeader>
         <div className="schedule-container">
-          {schedule}
+          
         </div>
+        <IonList>
+          {schedule}
+        </IonList>
       </IonContent>
     </IonPage>
   );
