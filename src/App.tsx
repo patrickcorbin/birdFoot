@@ -44,10 +44,13 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+// import { useStorage } from './hooks/useStorage';
 
 setupIonicReact();
 
 const App: React.FC = () => {
+
+  // const { favs, addFav } = useStorage();
 
   // const [myFavorites, setMyFavorites] = useState<(string | null)[]>(
   //   ["B4MVBK2MMZPFEXRW4K7VU4BCSQA0PY","PVNGBKTKZA85W8MKDLLR8TD38V23CW"]
@@ -69,13 +72,17 @@ const App: React.FC = () => {
 
   // const testFavorites = ["B4MVBK2MMZPFEXRW4K7VU4BCSQA0PY","PVNGBKTKZA85W8MKDLLR8TD38V23CW"]
 
-  function addFavorite(id: string) {
+  const addFavorite = async (id: string) => {
     setMyFavorites(prevMyFavorites => [...prevMyFavorites, id])
   }
 
-  function removeFavorite(id: string) {
+  const removeFavorite = async (id: string) => {
     setMyFavorites(prevMyFavorites => prevMyFavorites.filter(fav => fav !== id))
   }
+
+  // const addNewFav = async () => {
+  //   await addFav(id);
+  // }
 
   return (
     <IonApp>
