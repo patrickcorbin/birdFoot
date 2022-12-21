@@ -10,7 +10,6 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-// import { Storage } from '@ionic/storage';
 import { useEffect, useState } from 'react';
 import { calendar, heart, home, informationCircle } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
@@ -44,13 +43,15 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-// import { useStorage } from './hooks/useStorage';
+
+// import { Storage } from '@ionic/storage';
+import { FavoriteItem, useStorage } from './hooks/useStorage';
 
 setupIonicReact();
 
 const App: React.FC = () => {
 
-  // const { favs, addFav } = useStorage();
+  const { favs, addFav } = useStorage();
 
   // const [myFavorites, setMyFavorites] = useState<(string | null)[]>(
   //   ["B4MVBK2MMZPFEXRW4K7VU4BCSQA0PY","PVNGBKTKZA85W8MKDLLR8TD38V23CW"]
@@ -80,9 +81,9 @@ const App: React.FC = () => {
     setMyFavorites(prevMyFavorites => prevMyFavorites.filter(fav => fav !== id))
   }
 
-  // const addNewFav = async () => {
-  //   await addFav(id);
-  // }
+  const addNewFav = async (id: FavoriteItem) => {
+    await addFav(id);
+  }
 
   return (
     <IonApp>
