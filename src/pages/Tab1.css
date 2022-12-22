@@ -20,6 +20,7 @@
 .bird {
     max-width: 250px;
     align-self: center;
+    display: none;
 }
 
 IonButton {
@@ -31,5 +32,6 @@ IonButton {
         position: absolute;
         bottom: 0;
         margin-bottom: 56px;
+        display: block;
     }
 }
