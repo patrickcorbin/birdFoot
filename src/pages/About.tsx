@@ -13,7 +13,7 @@ const About: React.FC = () => {
             <IonTitle>About</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonContent className="ion-padding demo-container" fullscreen>
+        <IonContent className="demo-container" fullscreen>
           <IonHeader collapse="condense">
             <IonToolbar>
               <IonTitle size="large">About</IonTitle>

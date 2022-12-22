@@ -23,7 +23,7 @@ const ArtistDetail: React.FC = () => {
                 </IonButtons>
             </IonToolbar>
         </IonHeader>
-        <IonContent className="ion-padding demo-container" fullscreen>
+        <IonContent className="demo-container" fullscreen>
             <ArtistItemDetail
                 id={id}
                 artist={artist}

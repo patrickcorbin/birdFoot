@@ -22,3 +22,12 @@
     margin: .2em 0;
     opacity: .65;
 }
+
+ion-thumbnail {
+    --border-radius: 10px;
+}
+
+ion-item.sched-item {
+    --padding-top: 1em;
+    --padding-bottom: 1em;
+}

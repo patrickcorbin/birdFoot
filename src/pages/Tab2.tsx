@@ -61,9 +61,6 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
             <IonTitle size="large">Schedule</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <div className="schedule-container">
-          
-        </div>
         <IonList>
           {schedule}
         </IonList>

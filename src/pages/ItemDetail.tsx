@@ -29,7 +29,7 @@ const ItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, remove
                 </IonButtons>
             </IonToolbar>
         </IonHeader>
-        <IonContent className="ion-padding demo-container" fullscreen>
+        <IonContent className="demo-container" fullscreen>
             <ScheduleItemDetail
                 id={id}
                 artist={artist}
