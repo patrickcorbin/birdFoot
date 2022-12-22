@@ -29,11 +29,19 @@ export function useStorage() {
         const newFavs = [...favs, id]
         setFavs(prevFavs => [...prevFavs, id]);
         store!.set(MYFAV_KEY, newFavs);
+        // console.log(favs)
+    }
+
+    const removeFav = async (id: FavoriteItem) => {
+        const newFavs = favs.filter(fav => fav !== id);
+        setFavs(prevFavs => prevFavs.filter(fav => fav !== id));
+        store!.set(MYFAV_KEY, newFavs)
         console.log(favs)
     }
 
     return {
         favs,
-        addFav
+        addFav,
+        removeFav
     }
 }
