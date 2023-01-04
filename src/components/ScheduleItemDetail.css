@@ -35,6 +35,13 @@
     color: #830053;
 }
 
+ion-item.itemDetail-item {
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+}
+
 ion-icon.add-icon {
     font-size: 1.5rem;
 }

@@ -1,10 +1,11 @@
-import { IonIcon } from '@ionic/react';
+import { IonIcon, IonItem } from '@ionic/react';
 import { heart, heartOutline, location } from 'ionicons/icons';
 import './ScheduleItemDetail.css';
 
 interface ContainerProps {
     id?: string;
     artist: string;
+    artistID: string;
     date: string;
     imageFile: string;
     perfLocation: string;
@@ -19,7 +20,7 @@ interface ContainerProps {
     handleClose?: any;
   }
   
-  const ScheduleItemDetail: React.FC<ContainerProps> = ({ id, artist, date, imageFile, perfLocation, time, title, program, description, isFavorite, handleAdd, handleRemove }) => {
+  const ScheduleItemDetail: React.FC<ContainerProps> = ({ id, artist, artistID, date, imageFile, perfLocation, time, title, program, description, isFavorite, handleAdd, handleRemove }) => {
     
     const programDisplay = program.map(prog => <p key={Math.random()}>{prog.artist && (<b>{prog.artist}:</b>)} {prog.piece}</p> )
 
@@ -27,15 +28,6 @@ interface ContainerProps {
     
     return (
       <div className="schedItemDetail">
-        {/* <IonHeader>
-            <IonToolbar className="schedItemDetail__toolbar">
-                <IonButtons slot="end">
-                    <IonButton onClick={handleClose} shape="round">
-                        <IonIcon icon={close} />
-                    </IonButton>
-                </IonButtons>
-            </IonToolbar>
-        </IonHeader> */}
         <img className="schedItemDetail__img" src={`./assets/images/${imageFile}`} alt={artist} />
         <div className="schedItemDetail__body">
             <div className="schedItemDetail__body-title">
@@ -48,9 +40,16 @@ interface ContainerProps {
                 icon={isFavorite ? heart : heartOutline}
               ></IonIcon>
             </div>
-            <h3 className="schedItemDetail__body-artist">
-                {artist}
-            </h3>
+            <IonItem
+              className="itemDetail-item"
+              lines='none'
+              detail={false}
+              routerLink={`/artists/${artistID}`}  
+            >
+              <h3 className="schedItemDetail__body-artist">
+                  {artist}
+              </h3>
+            </IonItem>
             <div className="schedItemDetail__body-date">
                 <div>{date}</div>
                 <div>{time}</div>

@@ -22,8 +22,8 @@ const ScheduleIonItem: React.FC<ContainerProps> = ({ id, parentPage, artist, dat
     <IonItem 
         className="sched-item" 
         lines='full' 
-        detail={false} 
-        href={`/${parentPage}/item/${id}`}
+        detail={false}
+        routerLink={`/${parentPage}/item/${id}`}
     >
           <IonThumbnail slot="start">
             <img src={`./assets/images/${imageFile}`} alt={artist} />

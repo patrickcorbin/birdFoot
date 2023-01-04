@@ -1,8 +1,9 @@
-import { IonContent, IonHeader, IonItem, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonItem, IonList, IonPage, IonTitle, IonToolbar} from '@ionic/react';
 import './Info.css';
 import './demo.css';
 
 const Info: React.FC = () => {
+
   return (
     <IonPage className="demo-body">
       <IonHeader>

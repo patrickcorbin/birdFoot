@@ -18,7 +18,7 @@ const ItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, remove
 
     const schedItem = scheduleData.filter(sched => sched.id === id)
 
-    const { artist, date, description, imageFile, perfLocation, program, time, title } = schedItem[0]
+    const { artist, artistID, date, description, imageFile, perfLocation, program, time, title } = schedItem[0]
 
   return (
     <IonPage className="demo-body">
@@ -33,6 +33,7 @@ const ItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, remove
             <ScheduleItemDetail
                 id={id}
                 artist={artist}
+                artistID={artistID}
                 date={date}
                 imageFile={imageFile}
                 perfLocation={perfLocation}

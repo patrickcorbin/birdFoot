@@ -13,7 +13,7 @@ const ArtistItem: React.FC<ContainerProps> = ({ id, artist, imageFile }) => {
         className="sched-item" 
         lines='full' 
         detail={false} 
-        href={`/artists/${id}`}
+        routerLink={`/artists/${id}`}
     >
           <IonThumbnail slot="start">
             <img src={`./assets/images/${imageFile}`} alt={artist} />
