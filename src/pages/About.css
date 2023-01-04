@@ -7,7 +7,14 @@
     line-height: 1.3rem;
 }
 
-.about_img {
+.about__img {
+    height: 250px;
     width: 100%;
     object-fit: cover;
+}
+
+@media (width >= 750px) {
+    .about__img {
+        height: 400px;
+    }
 }

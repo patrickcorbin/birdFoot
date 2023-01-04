@@ -10,3 +10,9 @@
     width: 100%;
     object-fit: cover;
 }
+
+@media (width >= 750px) {
+    .artistItemDetail__img {
+        height: 400px;
+    }
+}
