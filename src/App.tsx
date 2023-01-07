@@ -24,7 +24,6 @@ import ItemDetail from './pages/ItemDetail';
 import FavItemDetail from './pages/FavItemDetail';
 import ArtistDetail from './pages/ArtistDetail';
 
-
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -52,6 +51,8 @@ setupIonicReact();
 const App: React.FC = () => {
 
   const { favs, addFav, removeFav } = useStorage()
+
+  console.log('test', process.env)
 
   // const [myFavorites, setMyFavorites] = useState<(string | null)[]>(
   //   ["B4MVBK2MMZPFEXRW4K7VU4BCSQA0PY","PVNGBKTKZA85W8MKDLLR8TD38V23CW"]

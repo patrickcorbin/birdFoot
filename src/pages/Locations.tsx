@@ -6,7 +6,9 @@ import { locations } from '../data/locations.js';
 
 const Locations: React.FC = () => {
 
-  const key = "AIzaSyC_Apog-yi-mdlHVeD8PpAQETXskNFx23c";
+  // const key = (process.env.REACT_APP_MAP_KEY as string)
+  const key = (process.env.REACT_APP_TEST_KEY as string)
+
   let newMap: GoogleMap
   const mapRef = useRef<HTMLElement>()
 
@@ -17,8 +19,6 @@ const Locations: React.FC = () => {
   //   },
   //   zoom: 12
   // })
-
-  // const testKey = process.env.MY_MAPS_API_KEY
   
   const createMap = async () => {
 
