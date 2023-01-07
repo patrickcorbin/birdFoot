@@ -6,8 +6,8 @@ import { locations } from '../data/locations.js';
 
 const Locations: React.FC = () => {
 
-  // const key = (process.env.REACT_APP_MAP_KEY as string)
-  const key = (process.env.REACT_APP_TEST_KEY as string)
+  const key = (process.env.REACT_APP_MAP_KEY as string)
+  // const key = (process.env.REACT_APP_TEST_KEY as string)
 
   let newMap: GoogleMap
   const mapRef = useRef<HTMLElement>()
