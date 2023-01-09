@@ -6,7 +6,8 @@ const scheduleData = [
         artistID: "6VMY2BOT541PKQ40AWSA5CI2XJBTLW",
         date: "Sun, Mar 14",
         time: "2:30–3:30 PM",
-        perfLocation: "Online",
+        perfLocation: "George and Joyce Wein Jazz & Heritage Center",
+        locationID: "RQ1WTRS2RN54TNXYR4RWB16CXH4CWU",
         imageFile: "Jasper-Quartet-2021.jpg",
         program: [
             {
@@ -30,7 +31,8 @@ const scheduleData = [
         artistID: "DBCAE4J0GH4J6Z6G74XP46AK5D8F47",
         date: "Sun, Mar 28",
         time: "2:30–3:30 PM",
-        perfLocation: "Online",
+        perfLocation: "Contemporary Arts Center New Orleans",
+        locationID: "AZX0MDEUK29AO4T8UKO02OHXDIF19G",
         imageFile: "Argus-Quartet.jpeg",
         program: [
             {
@@ -50,7 +52,8 @@ const scheduleData = [
         artistID: "G3LJ8MPBNFBA4L3MG9FB22C6AHU3SQ",
         date: "Sun, Apr 11",
         time: "2:30–3:30 PM",
-        perfLocation: "Online",
+        perfLocation: "Ace Hotel New Orleans",
+        locationID: "EKK8V7ZKTML90DAR6QCALH9FNMJPBG",
         imageFile: "birdfoot.060217.jpg",
         program: [
             {
@@ -74,7 +77,8 @@ const scheduleData = [
         artistID: "ISRWYTKAD4KCE8LUASX4XA9YSEOH6C",
         date: "Sun, Apr 25",
         time: "2:30–3:30 PM",
-        perfLocation: "Online",
+        perfLocation: "George and Joyce Wein Jazz & Heritage Center",
+        locationID: "RQ1WTRS2RN54TNXYR4RWB16CXH4CWU",
         imageFile: "Linos_Piano_Trio.jpg",
         program: [
             {
@@ -103,7 +107,8 @@ const scheduleData = [
         artistID: "TNW6FKC2F2FGF08VCKJ803ETHR2KRT",
         date: "Sun, May 16",
         time: "2:30–3:30 PM",
-        perfLocation: "Online",
+        perfLocation: "Contemporary Arts Center New Orleans",
+        locationID: "AZX0MDEUK29AO4T8UKO02OHXDIF19G",
         imageFile: "Borromeo-SQ-2021.jpg",
         program: [
             {
@@ -127,7 +132,8 @@ const scheduleData = [
         artistID: "H2QG173GK1B5YCAU6MWMN1HY87L6Z8",
         date: "Sun, May 23",
         time: "2:30–3:30 PM",
-        perfLocation: "Online",
+        perfLocation: "Pan American Life Center",
+        locationID: "HZ55545HKD9XNE1A73ZU124EMXF8Z2",
         imageFile: "Jenna-Sherry-violin.jpg",
         program: [
             {

@@ -27,8 +27,13 @@
     display: flex;
     gap: .5em;
     align-items: center;
-    padding-bottom: 1em;
-    border-bottom: solid .5px rgba(0,0,0,.2);
+    /* padding-bottom: 1em; */
+    /* border-bottom: solid .5px rgba(0,0,0,.2); */
+}
+
+.schedItemDetail__description-title {
+    padding-top: 1em;
+    border-top: solid .5px rgba(0,0,0,0.2);
 }
 
 .icon-purple {

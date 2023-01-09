@@ -9,6 +9,7 @@ interface ContainerProps {
     date: string;
     imageFile: string;
     perfLocation: string;
+    locationID: string;
     time: string;
     title: string;
     program: Array<any>;
@@ -20,7 +21,7 @@ interface ContainerProps {
     handleClose?: any;
   }
   
-  const ScheduleItemDetail: React.FC<ContainerProps> = ({ id, artist, artistID, date, imageFile, perfLocation, time, title, program, description, isFavorite, handleAdd, handleRemove }) => {
+  const ScheduleItemDetail: React.FC<ContainerProps> = ({ id, artist, artistID, date, imageFile, locationID, perfLocation, time, title, program, description, isFavorite, handleAdd, handleRemove }) => {
     
     const programDisplay = program.map(prog => <p key={Math.random()}>{prog.artist && (<b>{prog.artist}:</b>)} {prog.piece}</p> )
 
@@ -54,11 +55,18 @@ interface ContainerProps {
                 <div>{date}</div>
                 <div>{time}</div>
             </div>
-            <div className="schedItemDetail__body-location">
-              <IonIcon className="icon-purple" icon={location} />
-              <span className="location-text">{perfLocation}</span>
-            </div>
-            <h3>Program:</h3>
+            <IonItem
+              className="itemDetail-item"
+              lines='none'
+              detail={false}
+              routerLink={`/locations/${locationID}`}
+            >
+              <div className="schedItemDetail__body-location">
+                <IonIcon className="icon-purple" icon={location} />
+                <span className="location-text">{perfLocation}</span>
+              </div>
+            </IonItem>
+            <h3 className="schedItemDetail__description-title">Program:</h3>
             <p>Selections from</p>
             {programDisplay}
             {descriptionDisplay}

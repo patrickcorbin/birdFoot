@@ -18,7 +18,7 @@ const FavItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, rem
 
     const schedItem = scheduleData.filter(sched => sched.id === id)
 
-    const { artist, artistID, date, description, imageFile, perfLocation, program, time, title } = schedItem[0]
+    const { artist, artistID, date, description, imageFile, locationID, perfLocation, program, time, title } = schedItem[0]
 
   return (
     <IonPage className="demo-body">
@@ -37,6 +37,7 @@ const FavItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, rem
                 date={date}
                 imageFile={imageFile}
                 perfLocation={perfLocation}
+                locationID={locationID}
                 time={time}
                 title={title}
                 program={program}
