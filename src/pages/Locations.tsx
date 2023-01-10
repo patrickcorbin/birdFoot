@@ -1,5 +1,6 @@
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonLabel, IonList, IonPage, IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonIcon, IonList, IonPage, IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react';
 import { useEffect, useState } from 'react';
+import { list, map} from 'ionicons/icons';
 import './Locations.css';
 import { locations } from '../data/locations.js';
 import { useMaps } from '../hooks/useMaps';
@@ -90,10 +91,10 @@ const Locations: React.FC = () => {
             {/* <IonTitle>Locations</IonTitle> */}
             <IonSegment value={mapView ? 'map' : 'list'}>
               <IonSegmentButton value="map" onClick={() => setMapView(true)}>
-              <IonLabel>map</IonLabel>
+                <IonIcon icon={map} />
               </IonSegmentButton>
               <IonSegmentButton value="list" onClick={() => setMapView(false)}>
-                <IonLabel>list</IonLabel>
+                <IonIcon icon={list} />
               </IonSegmentButton>
             </IonSegment>
           </IonToolbar>
