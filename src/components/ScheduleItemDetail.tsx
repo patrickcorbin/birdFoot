@@ -44,7 +44,7 @@ interface ContainerProps {
             <IonItem
               className="itemDetail-item"
               lines='none'
-              detail={false}
+              detail={true}
               routerLink={`/artists/${artistID}`}  
             >
               <h3 className="schedItemDetail__body-artist">
@@ -58,7 +58,7 @@ interface ContainerProps {
             <IonItem
               className="itemDetail-item"
               lines='none'
-              detail={false}
+              detail={true}
               routerLink={`/locations/${locationID}`}
             >
               <div className="schedItemDetail__body-location">

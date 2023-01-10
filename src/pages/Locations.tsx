@@ -99,11 +99,6 @@ const Locations: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent className="demo-container" fullscreen>
-          <IonHeader collapse="condense">
-            <IonToolbar>
-              {/* <IonTitle size="large">Locations</IonTitle> */}
-            </IonToolbar>
-          </IonHeader>
           {
             mapView ? 
             <capacitor-google-map 
