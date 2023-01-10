@@ -1,8 +1,10 @@
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonItem, IonLabel, IonList, IonPage, IonSegment, IonSegmentButton, IonThumbnail, IonToolbar, useIonViewWillEnter } from '@ionic/react';
-import { useState } from 'react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonLabel, IonList, IonPage, IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react';
+import { useEffect, useState } from 'react';
 import './Locations.css';
 import { locations } from '../data/locations.js';
 import { useMaps } from '../hooks/useMaps';
+import LocationItemLink from '../components/LocationItemLink';
+// import MapDetail from '../components/MapDetail';
 
 const Locations: React.FC = () => {
 
@@ -57,27 +59,24 @@ const Locations: React.FC = () => {
 
   const { mapRef, createMap } = useMaps(locations)
 
-  useIonViewWillEnter(() => createMap());
+  // useIonViewWillEnter(() => createMap());
+
+  useEffect(() => {
+    if (mapView) {
+      createMap()
+    } 
+  }, [mapView, createMap])
 
   const locationList = locations.map(item => {
     return (
-      <IonItem
-              className="sched-item" 
-              lines='none' 
-              detail={false}
-          >
-              <IonThumbnail slot="start">
-                  <img src={`./assets/images/${item.imageFile}`} alt={item.title} />
-              </IonThumbnail>
-              <div className="sched-item__body" >
-                  <h2 className="sched-item__body-title">
-                      {item.title}
-                  </h2>
-                  <p className="sched-item__body-artist">
-                      {item.address}
-                  </p>
-              </div>
-      </IonItem>
+      <LocationItemLink 
+        key={item.id}
+        id={item.id}
+        title={item.title}
+        imageFile={item.imageFile}
+        address={item.address}
+        line={true}
+      />
     )
   })
 
@@ -89,7 +88,7 @@ const Locations: React.FC = () => {
                 <IonBackButton text="Back" defaultHref='/info' />
             </IonButtons>
             {/* <IonTitle>Locations</IonTitle> */}
-            <IonSegment value="map">
+            <IonSegment value={mapView ? 'map' : 'list'}>
               <IonSegmentButton value="map" onClick={() => setMapView(true)}>
               <IonLabel>map</IonLabel>
               </IonSegmentButton>
@@ -112,7 +111,7 @@ const Locations: React.FC = () => {
               id="map"
               className="test-map"
             ></capacitor-google-map> :
-            <IonList>
+            <IonList className="ion-padding">
               {locationList}
             </IonList>
           }

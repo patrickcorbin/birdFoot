@@ -1,11 +1,13 @@
 import { useRef, useState } from 'react';
 import { GoogleMap } from '@capacitor/google-maps';
+// import { useIonModal } from '@ionic/react';
+// import LocationItem from '../components/LocationItem';
 
 
 export function useMaps(locs: any) {
 
-    // const key = (process.env.REACT_APP_MAP_KEY as string)
-    const key = (process.env.REACT_APP_TEST_KEY as string)    
+    const key = (process.env.REACT_APP_MAP_KEY as string)
+    // const key = (process.env.REACT_APP_TEST_KEY as string)    
 
     const [mapConfig, setMapConfig] = useState({
         center: {
@@ -14,6 +16,35 @@ export function useMaps(locs: any) {
         },
         zoom: 12
     })
+
+    // const [selectedMarker, setSelectedMarker] = useState(null)
+
+    // const [present, dismiss] = useIonModal(LocationItem, {
+        
+    //     marker: selectedMarker,
+    //     line: false
+    //     // key: selectedMarker.id,
+    //     // id: selectedMarker.id,
+    //     // title: selectedMarker.title,
+    //     // imageFile: selectedMarker.imageFile,
+    //     // address: selectedMarker.address,
+    //     // line: false
+    // })
+
+    // const modalOptions = {
+
+    //     initialBreakpoint: 0.3,
+    //     breakpoints: [0, 0.3],
+    //     backdropBreakpoint: 0,
+    //     onDidDismiss: () => dismiss()
+    // }
+
+    // const markerClick = (marker: any) => {
+
+    //     setSelectedMarker(locs.filter((m: any) => (m.lat === marker.latitude && m.lng === marker.longitude)))
+    //     present(modalOptions)
+    //     console.log('clicked')
+    // }
 
     let newMap: GoogleMap
     const mapRef = useRef<HTMLElement>()
@@ -29,6 +60,7 @@ export function useMaps(locs: any) {
           config: mapConfig
         })
 
+        // newMap.setOnMarkerClickListener((marker) => markerClick(marker))
         addMarkers()
       }
     
