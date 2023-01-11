@@ -34,7 +34,7 @@ const ScheduleIonItem: React.FC<ContainerProps> = ({ id, parentPage, artist, dat
             icon={isFavorite ? heart : heartOutline}
             onClick={isFavorite ? handleRemove : handleAdd}
           ></IonIcon>
-          <div className="sched-item__body" >
+          <div className="sched-item__body">
             <h2 className="sched-item__body-title">
                 {title}
             </h2>
@@ -45,7 +45,7 @@ const ScheduleIonItem: React.FC<ContainerProps> = ({ id, parentPage, artist, dat
                 {date}, {time}
             </p>
             <div className="sched-item__body-location">
-              <IonIcon className="icon-purple" icon={location} />
+              <IonIcon className="icon-purple icon-loc" icon={location} />
               <span className="location-text">{perfLocation}</span>
             </div>
           </div>

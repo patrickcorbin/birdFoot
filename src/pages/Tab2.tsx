@@ -42,8 +42,8 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
         time={item.time}
         title={item.title}
         isFavorite={myFavorites.includes(item.id)}
-        handleAdd={(e: any) => {addFavorite(item.id); e.preventDefault();}}
-        handleRemove={(e: any) => {removeFavorite(item.id); e.preventDefault();}}
+        handleAdd={(e: TouchEvent) => {addFavorite(item.id); e.stopPropagation(); e.preventDefault();}}
+        handleRemove={(e: any) => {removeFavorite(item.id); e.stopPropagation(); e.preventDefault();}}
       />
     )
   })

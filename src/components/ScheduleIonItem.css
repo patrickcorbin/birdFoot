@@ -31,3 +31,7 @@ ion-item.sched-item {
     --padding-top: 1em;
     --padding-bottom: 1em;
 }
+
+.icon-loc {
+    flex-shrink: 0;
+}
