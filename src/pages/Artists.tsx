@@ -27,11 +27,11 @@ const Artists: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding demo-container" fullscreen>
-          <IonHeader collapse="condense">
+          {/* <IonHeader collapse="condense">
             <IonToolbar>
               <IonTitle size="large">Artists</IonTitle>
             </IonToolbar>
-          </IonHeader>
+          </IonHeader> */}
           <IonList>
             {artists}
           </IonList>          

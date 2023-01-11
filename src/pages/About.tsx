@@ -14,11 +14,11 @@ const About: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent className="demo-container" fullscreen>
-          <IonHeader collapse="condense">
+          {/* <IonHeader collapse="condense">
             <IonToolbar>
               <IonTitle size="large">About</IonTitle>
             </IonToolbar>
-          </IonHeader>
+          </IonHeader> */}
           <img className="about__img" src='./assets/images/flood.jpg' alt='MS River Birdfoot' />
           <div className="about-container">
 

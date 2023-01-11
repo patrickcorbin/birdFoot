@@ -14,11 +14,11 @@ const Sponsors: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding demo-container" fullscreen>
-        <IonHeader collapse="condense">
+        {/* <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Sponsors</IonTitle>
           </IonToolbar>
-        </IonHeader>
+        </IonHeader> */}
         <div className="sponsors-container">
             <a target="_blank" rel="noopener noreferrer" href="https://www.gnof.org/program/the-selley-foundation/" className="full-row">
                 <img className="sponsors__img" src={`./assets/images/sponsors/Selley_GNOF.png`} alt="Selley Foundation" />
