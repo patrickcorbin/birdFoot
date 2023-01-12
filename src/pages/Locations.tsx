@@ -1,11 +1,7 @@
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonIcon, IonList, IonPage, IonSegment, IonSegmentButton, IonToolbar } from '@ionic/react';
-import { useEffect, useState } from 'react';
-import { list, map} from 'ionicons/icons';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Locations.css';
 import { locations } from '../data/locations.js';
-import { useMaps } from '../hooks/useMaps';
 import LocationItemLink from '../components/LocationItemLink';
-// import MapDetail from '../components/MapDetail';
 
 const Locations: React.FC = () => {
 
@@ -56,17 +52,9 @@ const Locations: React.FC = () => {
 
   // const addMarkers = () => locations.forEach(marker => addMapMarker(marker))
 
-  const [mapView, setMapView] = useState(true)
-
-  const { mapRef, createMap } = useMaps(locations)
+  // const { mapRef, createMap } = useMaps(locations)
 
   // useIonViewWillEnter(() => createMap());
-
-  useEffect(() => {
-    if (mapView) {
-      createMap()
-    } 
-  }, [mapView, createMap])
 
   const locationList = locations.map(item => {
     return (
@@ -85,19 +73,22 @@ const Locations: React.FC = () => {
             <IonButtons slot="start">
                 <IonBackButton text="Back" defaultHref='/info' />
             </IonButtons>
-            {/* <IonTitle>Locations</IonTitle> */}
-            <IonSegment value={mapView ? 'map' : 'list'}>
+            <IonTitle>Locations</IonTitle>
+            {/* <IonSegment value={mapView ? 'map' : 'list'}>
               <IonSegmentButton value="map" onClick={() => setMapView(true)}>
                 <IonIcon icon={map} />
               </IonSegmentButton>
               <IonSegmentButton value="list" onClick={() => setMapView(false)}>
                 <IonIcon icon={list} />
               </IonSegmentButton>
-            </IonSegment>
+            </IonSegment> */}
           </IonToolbar>
         </IonHeader>
         <IonContent className="demo-container" fullscreen>
-          {
+          <IonList className="ion-padding">
+            {locationList}
+          </IonList>
+          {/* {
             mapView ? 
             <capacitor-google-map 
               ref={mapRef} 
@@ -107,7 +98,7 @@ const Locations: React.FC = () => {
             <IonList className="ion-padding">
               {locationList}
             </IonList>
-          }
+          } */}
         </IonContent>
       </IonPage>
     );
