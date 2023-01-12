@@ -72,10 +72,7 @@ const Locations: React.FC = () => {
     return (
       <LocationItemLink 
         key={item.id}
-        id={item.id}
-        title={item.title}
-        imageFile={item.imageFile}
-        address={item.address}
+        marker={item}
         line={true}
       />
     )

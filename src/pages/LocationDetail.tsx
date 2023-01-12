@@ -37,10 +37,6 @@ const LocationDetail: React.FC = () => {
             <LocationItem
                 key={id}
                 marker={locationItem[0]}
-                // id={id}
-                // title={title}
-                // imageFile={imageFile}
-                // address={address}
                 line={false}
             />
         </IonContent>

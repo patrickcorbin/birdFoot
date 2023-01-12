@@ -2,10 +2,6 @@ import { IonItem, IonThumbnail} from '@ionic/react';
 import './LocationItem.css';
 
 interface ContainerProps {
-//   id?: string;
-//   title: string;
-//   imageFile: string;
-//   address: string;
     marker: {
         id: string;
         title: string;
@@ -13,10 +9,9 @@ interface ContainerProps {
         address: string;
     };
   line: boolean;
-  dismiss?: any;
 }
 
-const LocationItem: React.FC<ContainerProps> = ({ marker, line, dismiss }) => {
+const LocationItem: React.FC<ContainerProps> = ({ marker, line }) => {
   return (
     <IonItem
         className="sched-item" 
