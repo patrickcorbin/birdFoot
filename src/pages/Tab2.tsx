@@ -1,9 +1,8 @@
 import { IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-// import { useState } from 'react';
-import ScheduleIonItem from '../components/ScheduleIonItem';
-// import ScheduleItemDetail from '../components/ScheduleItemDetail';
+// import ScheduleIonItem from '../components/ScheduleIonItem';
 import './Tab2.css';
 import { scheduleData } from '../data/schedule.js'
+import ScheduleGroup from '../components/ScheduleGroup';
 
 interface ContainerProps {
   myFavorites: Array<any>;
@@ -13,40 +12,39 @@ interface ContainerProps {
 
 const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavorite }) => {
 
-  // const [schedDetailId, setSchedDetailId] = useState<string>('')
+  const scheduleDates = scheduleData.map(item => item.dateFull)
+  const uniqueDates = [...Array.from(new Set(scheduleDates))]
 
-  // const schedDetailEl = scheduleData.filter(sched => sched.id === schedDetailId)
-
-  // function showSchedDetail(x: string) {
-  //   setSchedDetailId(x)
-  // }
-
-  // function closeSchedDetail() {
-  //   setSchedDetailId('')
-  // }
-
-  // function testFn(x: string) {
-  //   alert(`item ${x} added`)
-  // }
-
-  const schedule = scheduleData.map(item => {
+  const scheduleGroup = uniqueDates.map(date => {
     return (
-      <ScheduleIonItem 
-        key={item.id}
-        id={item.id}
-        parentPage={'schedule'}
-        artist={item.artist}
-        date={item.date}
-        imageFile={item.imageFile}
-        perfLocation={item.perfLocation}
-        time={item.time}
-        title={item.title}
-        isFavorite={myFavorites.includes(item.id)}
-        handleAdd={(e: TouchEvent) => {addFavorite(item.id); e.stopPropagation(); e.preventDefault();}}
-        handleRemove={(e: any) => {removeFavorite(item.id); e.stopPropagation(); e.preventDefault();}}
+      <ScheduleGroup 
+        key={date}
+        dateFull={date}
+        myFavorites={myFavorites}
+        addFavorite={addFavorite}
+        removeFavorite={removeFavorite}
       />
     )
   })
+
+  // const schedule = scheduleData.map(item => {
+  //   return (
+  //     <ScheduleIonItem 
+  //       key={item.id}
+  //       id={item.id}
+  //       parentPage={'schedule'}
+  //       artist={item.artist}
+  //       date={item.date}
+  //       imageFile={item.imageFile}
+  //       perfLocation={item.perfLocation}
+  //       time={item.time}
+  //       title={item.title}
+  //       isFavorite={myFavorites.includes(item.id)}
+  //       handleAdd={(e: TouchEvent) => {addFavorite(item.id); e.stopPropagation(); e.preventDefault();}}
+  //       handleRemove={(e: any) => {removeFavorite(item.id); e.stopPropagation(); e.preventDefault();}}
+  //     />
+  //   )
+  // })
 
   return (
     <IonPage className="demo-body">
@@ -62,7 +60,7 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
           </IonToolbar>
         </IonHeader>
         <IonList>
-          {schedule}
+          {scheduleGroup}
         </IonList>
       </IonContent>
     </IonPage>

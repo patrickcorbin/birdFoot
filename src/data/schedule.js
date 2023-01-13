@@ -4,7 +4,8 @@ const scheduleData = [
         title: "Rhythm: Dvořák & Price",
         artist: "Jasper String Quartet",
         artistID: "6VMY2BOT541PKQ40AWSA5CI2XJBTLW",
-        date: "Sun, Mar 14",
+        date: "Mon, Mar 13",
+        dateFull: "Monday, Mar 13",
         time: "2:30–3:30 PM",
         perfLocation: "George and Joyce Wein Jazz & Heritage Center",
         locationID: "RQ1WTRS2RN54TNXYR4RWB16CXH4CWU",
@@ -29,8 +30,9 @@ const scheduleData = [
         title: "Texture: Katherine Balch",
         artist: "Argus Quartet",
         artistID: "DBCAE4J0GH4J6Z6G74XP46AK5D8F47",
-        date: "Sun, Mar 28",
-        time: "2:30–3:30 PM",
+        date: "Mon, Mar 13",
+        dateFull: "Monday, Mar 13",
+        time: "5:00–6:00 PM",
         perfLocation: "Contemporary Arts Center New Orleans",
         locationID: "AZX0MDEUK29AO4T8UKO02OHXDIF19G",
         imageFile: "Argus-Quartet.jpeg",
@@ -50,7 +52,8 @@ const scheduleData = [
         title: "Voices: Haydn & Mozart",
         artist: "Jenna Sherry, Mayumi Sargent, Elizabeth Smalt, Lucile Perrin",
         artistID: "G3LJ8MPBNFBA4L3MG9FB22C6AHU3SQ",
-        date: "Sun, Apr 11",
+        date: "Tue, Mar 14",
+        dateFull: "Tuesday, Mar 14",
         time: "2:30–3:30 PM",
         perfLocation: "Ace Hotel New Orleans",
         locationID: "EKK8V7ZKTML90DAR6QCALH9FNMJPBG",
@@ -75,8 +78,9 @@ const scheduleData = [
         title: "Time: Lili Boulanger",
         artist: "Linos Piano Trio",
         artistID: "ISRWYTKAD4KCE8LUASX4XA9YSEOH6C",
-        date: "Sun, Apr 25",
-        time: "2:30–3:30 PM",
+        date: "Tue, Mar 14",
+        dateFull: "Tuesday, Mar 14",
+        time: "7:00–8:30 PM",
         perfLocation: "George and Joyce Wein Jazz & Heritage Center",
         locationID: "RQ1WTRS2RN54TNXYR4RWB16CXH4CWU",
         imageFile: "Linos_Piano_Trio.jpg",
@@ -105,7 +109,8 @@ const scheduleData = [
         title: "Gratitude: Beethoven",
         artist: "Borromeo String Quartet",
         artistID: "TNW6FKC2F2FGF08VCKJ803ETHR2KRT",
-        date: "Sun, May 16",
+        date: "Wed, Mar 15",
+        dateFull: "Wednesday, Mar 15",
         time: "2:30–3:30 PM",
         perfLocation: "Contemporary Arts Center New Orleans",
         locationID: "AZX0MDEUK29AO4T8UKO02OHXDIF19G",
@@ -130,8 +135,9 @@ const scheduleData = [
         title: "Memory: Brahms",
         artist: "Jenna Sherry, Shuann Chai, Teunis van der Zwart",
         artistID: "H2QG173GK1B5YCAU6MWMN1HY87L6Z8",
-        date: "Sun, May 23",
-        time: "2:30–3:30 PM",
+        date: "Wed, Mar 15",
+        dateFull: "Wednesday, Mar 15",
+        time: "4:30–5:00 PM",
         perfLocation: "Pan American Life Center",
         locationID: "HZ55545HKD9XNE1A73ZU124EMXF8Z2",
         imageFile: "Jenna-Sherry-violin.jpg",
@@ -147,6 +153,28 @@ const scheduleData = [
             "Come Backstage with Birdfoot Artistic Director and violinist Jenna Sherry, pianist Shuann Chai, and natural horn player Teunis van der Zwart, to discover Brahms’s music through the textures and colors of historical instruments and delve into the many facets of musical memory.",
             "Birdfoot and the performers would like to thank Andriessen Pianos in Harlem (The Netherlands) for generously allowing the performance recording for this event to be made in their showroom, using one of their historical instruments."
         ]
+    },
+    {
+        id: "XRW4K7VU4BCSMZPFEQA0PYB4MVBK2M",
+        title: "Texture: Katherine Balch",
+        artist: "Argus Quartet",
+        artistID: "DBCAE4J0GH4J6Z6G74XP46AK5D8F47",
+        date: "Thu, Mar 16",
+        dateFull: "Thursday, Mar 16",
+        time: "5:00–6:00 PM",
+        perfLocation: "Contemporary Arts Center New Orleans",
+        locationID: "AZX0MDEUK29AO4T8UKO02OHXDIF19G",
+        imageFile: "Argus-Quartet.jpeg",
+        program: [
+            {
+                artist: "Katherine Balch",
+                piece: "Drip Music (2019)"
+            }
+        ],
+        description: [
+            "When do small everyday sounds transform into music? Join Birdfoot and the Argus Quartet to explore the exquisite textures of soft sounds, and the beautiful lines between noise, sound, and silence.",
+            "In drip music*, composer Katherine Balch writes that: “From delicate, nearly inaudible drizzles of sound, splashes (heavy droplets) take over and begin to dance. This piece is about drawing attention to and then amplifying very tiny sounds, and is a celebratory exploration of the intimacies and intricacies of the string quartet."
+        ]  
     }
 ]
 
