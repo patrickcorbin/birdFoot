@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FB_API_KEY,
+    apiKey: process.env.REACT_APP_FB_KEY,
     authDomain: "my-test-5a29b.firebaseapp.com",
     projectId: process.env.REACT_APP_PROJECT_ID,
     storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
