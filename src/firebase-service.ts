@@ -1,6 +1,6 @@
-import { dismissOverlay } from "@ionic/core/dist/types/utils/overlays";
+// import { dismissOverlay } from "@ionic/core/dist/types/utils/overlays";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import { getFirestore, collection, getDocs, doc, getDoc } from "firebase/firestore/lite";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FB_KEY,
@@ -20,7 +20,7 @@ const perfDataFB = collection(db, "performanceData")
 const API = () => {
 
     const getCollectionData = async (collection: any) => {
-        const querySnapshot = await collection.get()
+        const querySnapshot = await getDocs(collection)
         const results = querySnapshot.docs.map((doc: any) => {
             return {...doc.data(), id: doc.id}
         })
@@ -28,8 +28,9 @@ const API = () => {
     }
 
     const getCollectionDoc = async (collection: any, id: string) => {
-        const doc = await collection.doc(id).get()
-        return {...doc.data(), id: doc.id}
+        const docRef = doc(db, collection, id)
+        const docSnap = await getDoc(docRef)
+        return {...docSnap.data(), id: docSnap.id}
     }
 
     return {

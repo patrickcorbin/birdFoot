@@ -11,10 +11,10 @@ interface ContainerProps {
   perfLocation: string;
   time: string;
   title: string;
-  isFavorite: boolean;
+  isFavorite?: boolean;
   handleClick?: any;
-  handleAdd: any;
-  handleRemove: any;
+  handleAdd?: any;
+  handleRemove?: any;
 }
 
 const ScheduleIonItem: React.FC<ContainerProps> = ({ id, parentPage, artist, date, imageFile, perfLocation, time, title, isFavorite, handleAdd, handleRemove }) => {

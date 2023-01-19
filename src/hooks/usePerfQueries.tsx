@@ -20,6 +20,8 @@ export const usePerformances = () => {
             performances.forEach((p: any) => {
                 client.setQueryData(["performances", p.id], p)
             })
+
+            return performances
         }
     )
 }
