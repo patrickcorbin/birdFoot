@@ -42,14 +42,8 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
     return (
       <ScheduleIonItem 
         key={item.id}
-        id={item.id}
+        item={item}
         parentPage={'favorites'}
-        artist={item.artist}
-        date={item.date}
-        imageFile={item.imageFile}
-        perfLocation={item.perfLocation}
-        time={item.time}
-        title={item.title}
         isFavorite={true}
         handleAdd={(e: any) => {addFavorite(item.id); e.stopPropagation(); e.preventDefault();}}
         handleRemove={(e: any) => {removeFavorite(item.id); e.stopPropagation(); e.preventDefault();}}

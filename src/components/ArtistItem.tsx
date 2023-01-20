@@ -2,12 +2,17 @@ import { IonItem, IonThumbnail} from '@ionic/react';
 import './ArtistItem.css';
 
 interface ContainerProps {
-  id?: string;
-  artist: string;
-  imageFile: string;
+  item: {
+    id: string;
+    artist: string;
+    imageFile: string;
+  }
 }
 
-const ArtistItem: React.FC<ContainerProps> = ({ id, artist, imageFile }) => {
+const ArtistItem: React.FC<ContainerProps> = ({ item }) => {
+
+  const { id, artist, imageFile } = item
+
   return (
     <IonItem 
         className="sched-item" 

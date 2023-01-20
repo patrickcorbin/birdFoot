@@ -9,9 +9,7 @@ const Artists: React.FC = () => {
       return (
         <ArtistItem 
           key={item.id}
-          id={item.id}
-          artist={item.artist}
-          imageFile={item.imageFile}
+          item={item}
         />
       )
     })

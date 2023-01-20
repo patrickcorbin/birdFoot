@@ -17,14 +17,8 @@ const ScheduleGroup: React.FC<ContainerProps> = ({ dateFull, myFavorites, addFav
         return (
           <ScheduleIonItem 
             key={item.id}
-            id={item.id}
+            item={item}
             parentPage={'schedule'}
-            artist={item.artist}
-            date={item.date}
-            imageFile={item.imageFile}
-            perfLocation={item.perfLocation}
-            time={item.time}
-            title={item.title}
             isFavorite={myFavorites.includes(item.id)}
             handleAdd={(e: TouchEvent) => {addFavorite(item.id); e.stopPropagation(); e.preventDefault();}}
             handleRemove={(e: any) => {removeFavorite(item.id); e.stopPropagation(); e.preventDefault();}}
