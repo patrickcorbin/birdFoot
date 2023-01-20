@@ -1,11 +1,7 @@
 import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './About.css';
-// import { usePerformances } from '../hooks/usePerfQueries';
 
 const About: React.FC = () => {
-  
-  // const { data } = usePerformances()
-
     return (
       <IonPage className="demo-body">
         <IonHeader>

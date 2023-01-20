@@ -15,7 +15,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
 
-const perfDataFB = collection(db, "performanceData")
+const perfDataCol = collection(db, "performanceData")
+const artistDataCol = collection(db, "artistData")
+const locationDataCol = collection(db, "locationData")
 
 const API = () => {
 
@@ -36,11 +38,27 @@ const API = () => {
     return {
         loadPerfData: async () => {
             console.log('firebase loadPerfData')
-            return await getCollectionData(perfDataFB)
+            return await getCollectionData(perfDataCol)
         },
         loadPerf: async (id: string) => {
             console.log('firebase loadPerf')
-            return await getCollectionDoc(perfDataFB, id)
+            return await getCollectionDoc(perfDataCol, id)
+        },
+        loadArtistData: async () => {
+            console.log('firebase loadArtistData')
+            return await getCollectionData(artistDataCol)
+        },
+        loadArtist: async (id: string) => {
+            console.log('firebase loadArtist')
+            return await getCollectionDoc(artistDataCol, id)
+        },
+        loadLocationData: async () => {
+            console.log('firebase loadLocationData')
+            return await getCollectionData(locationDataCol)
+        },
+        loadLocation: async (id: string) => {
+            console.log('firebase loadLocation')
+            return await getCollectionDoc(locationDataCol, id)
         }
     }
 }
