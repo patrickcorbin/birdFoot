@@ -4,7 +4,8 @@ import ScheduleIonItem from '../components/ScheduleIonItem';
 import { usePerformances } from '../hooks/useFBQueries';
 
 interface ContainerProps {
-  dateFull: string;
+  dateFull?: string;
+  dateTest?: Date;
   myFavorites: Array<any>;
   addFavorite: any;
   removeFavorite: any;

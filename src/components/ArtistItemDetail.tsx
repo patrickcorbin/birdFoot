@@ -6,11 +6,6 @@ interface ContainerProps {
     imageFile: string;
     artistDescription: string[];
     artistWebsite: string | null;
-    // id?: string;
-    // artist: string;
-    // imageFile: string;
-    // artistDescription: string[];
-    // artistWebsite: string | null;
   }
   
   const ArtistItemDetail: React.FC<ContainerProps> = ({ artist, imageFile, artistDescription, artistWebsite }) => {
