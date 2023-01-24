@@ -1,7 +1,7 @@
 import { IonBackButton, IonButtons, IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Artists.css';
 import ArtistItem from '../components/ArtistItem';
-import { artistData } from '../data/schedule.js'
+// import { artistData } from '../data/schedule.js';
 import { useArtists } from '../hooks/useFBQueries';
 
 const Artists: React.FC = () => {

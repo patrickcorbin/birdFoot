@@ -1,6 +1,6 @@
 import { IonItemDivider, IonItemGroup, IonLabel} from '@ionic/react';
 import ScheduleIonItem from '../components/ScheduleIonItem';
-import { scheduleData } from '../data/schedule.js'
+// import { scheduleData } from '../data/schedule.js';
 import { usePerformances } from '../hooks/useFBQueries';
 
 interface ContainerProps {
