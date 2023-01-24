@@ -2,8 +2,9 @@ import { IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar} from '@i
 // import { useState } from 'react';
 import ScheduleIonItem from '../components/ScheduleIonItem';
 import './Tab3.css';
-import { scheduleData } from '../data/schedule.js'
+// import { scheduleData } from '../data/schedule.js'
 import NoFavoriteContainer from '../components/NoFavoriteContainer';
+import { usePerformances } from '../hooks/useFBQueries';
 
 interface ContainerProps {
   myFavorites: Array<any>;
@@ -21,7 +22,10 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
 
   // const schedDetailEl = scheduleData.filter(sched => sched.id === schedDetailId)
 
-  let myFavoriteArr = scheduleData.filter(sched => myFavorites.includes(sched.id))
+  const { data } = usePerformances()
+
+  let myFavoriteArr = data?.filter(sched => myFavorites.includes(sched.id))
+  // let myFavoriteArr = scheduleData.filter(sched => myFavorites.includes(sched.id))
 
   // function showSchedDetail(x: string) {
   //   setSchedDetailId(x)
@@ -38,7 +42,7 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
   //   }
   // })
 
-  const schedule = myFavoriteArr.map(item => {
+  const schedule = myFavoriteArr?.map(item => {
     return (
       <ScheduleIonItem 
         key={item.id}
@@ -104,7 +108,7 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
         </div>
         <IonList>
         {
-            myFavoriteArr.length > 0 ?
+            myFavoriteArr && myFavoriteArr.length > 0 ?
             schedule :
             <NoFavoriteContainer />
           }

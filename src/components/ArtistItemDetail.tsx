@@ -6,9 +6,16 @@ interface ContainerProps {
     imageFile: string;
     artistDescription: string[];
     artistWebsite: string | null;
+    // id?: string;
+    // artist: string;
+    // imageFile: string;
+    // artistDescription: string[];
+    // artistWebsite: string | null;
   }
   
-  const ArtistItemDetail: React.FC<ContainerProps> = ({ id, artist, imageFile, artistDescription, artistWebsite }) => {
+  const ArtistItemDetail: React.FC<ContainerProps> = ({ artist, imageFile, artistDescription, artistWebsite }) => {
+
+    // const { artist, imageFile, artistDescription, artistWebsite } = artistObj
 
     const descriptionDisplay = artistDescription.map(desc => <p key={Math.random()}>{desc}</p>)
     

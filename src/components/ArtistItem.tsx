@@ -4,14 +4,15 @@ import './ArtistItem.css';
 interface ContainerProps {
   item: {
     id: string;
-    artist: string;
+    artist?: string;
+    name: string;
     imageFile: string;
   }
 }
 
 const ArtistItem: React.FC<ContainerProps> = ({ item }) => {
 
-  const { id, artist, imageFile } = item
+  const { id, name, imageFile } = item
 
   return (
     <IonItem 
@@ -21,11 +22,11 @@ const ArtistItem: React.FC<ContainerProps> = ({ item }) => {
         routerLink={`/artists/${id}`}
     >
           <IonThumbnail slot="start">
-            <img src={`./assets/images/${imageFile}`} alt={artist} />
+            <img src={`./assets/images/${imageFile}`} alt={name} />
           </IonThumbnail>
           <div className="sched-item__body" >
             <h2 className="sched-item__body-title">
-                {artist}
+                {name}
             </h2>
           </div>
       </IonItem>

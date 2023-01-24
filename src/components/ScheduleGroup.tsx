@@ -1,6 +1,7 @@
 import { IonItemDivider, IonItemGroup, IonLabel} from '@ionic/react';
 import ScheduleIonItem from '../components/ScheduleIonItem';
 import { scheduleData } from '../data/schedule.js'
+import { usePerformances } from '../hooks/useFBQueries';
 
 interface ContainerProps {
   dateFull: string;
@@ -11,9 +12,13 @@ interface ContainerProps {
 
 const ScheduleGroup: React.FC<ContainerProps> = ({ dateFull, myFavorites, addFavorite, removeFavorite }) => {
 
-    const groupData = scheduleData.filter(item => item.dateFull === dateFull)
+    const { data } = usePerformances()
 
-    const scheduleGroup = groupData.map(item => {
+    const groupDataFB = data?.filter(item => item.dateFull === dateFull)
+
+    // const groupData = scheduleData.filter(item => item.dateFull === dateFull)
+
+    const scheduleGroup = groupDataFB?.map(item => {
         return (
           <ScheduleIonItem 
             key={item.id}

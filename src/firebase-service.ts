@@ -30,10 +30,18 @@ const API = () => {
     }
 
     const getCollectionDoc = async (collection: any, id: string) => {
-        const docRef = doc(db, collection, id)
+        const docRef = doc(db, collection, `${id}`)
         const docSnap = await getDoc(docRef)
-        return {...docSnap.data(), id: docSnap.id}
+        return docSnap.data()
+        // return {...docSnap.data(), id: docSnap.id}
     }
+
+
+    // const getCollectionDoc = async (collection: any, id: string) => {
+    //     const docRef = doc(db, collection, id)
+    //     const docSnap = await getDoc(docRef)
+    //     return {...docSnap.data(), id: docSnap.id}
+    // }
 
     return {
         loadPerfData: async () => {

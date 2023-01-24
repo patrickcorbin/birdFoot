@@ -14,11 +14,9 @@ interface ContainerProps {
 
 const FavItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavorite }) => {
 
-    let { id } = useParams<{ id: string}>();
+    let { id } = useParams<{ id: string}>()
 
     const schedItem = scheduleData.filter(sched => sched.id === id)
-
-    const { artist, artistID, date, description, imageFile, locationID, perfLocation, program, time, title } = schedItem[0]
 
   return (
     <IonPage className="demo-body">
@@ -31,17 +29,7 @@ const FavItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, rem
         </IonHeader>
         <IonContent className="demo-container" fullscreen>
             <ScheduleItemDetail
-                id={id}
-                artist={artist}
-                artistID={artistID}
-                date={date}
-                imageFile={imageFile}
-                perfLocation={perfLocation}
-                locationID={locationID}
-                time={time}
-                title={title}
-                program={program}
-                description={description}
+                item={schedItem[0]}
                 isFavorite={myFavorites.includes(id)}
                 handleAdd={() => addFavorite(id)}
                 handleRemove={() => removeFavorite(id)}

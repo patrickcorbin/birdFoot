@@ -1,18 +1,23 @@
 import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonToolbar } from '@ionic/react';
 import './ArtistDetail.css';
 import './demo.css';
-import { artistData } from '../data/schedule.js'
+// import { artistData } from '../data/schedule.js'
 
 import { useParams } from 'react-router';
 import ArtistItemDetail from '../components/ArtistItemDetail';
+import { useArtist } from '../hooks/useFBQueries';
 
 const ArtistDetail: React.FC = () => {
 
     let { id } = useParams<{ id: string}>();
 
-    const artistItem = artistData.filter(item => item.id === id)
+    const { data } = useArtist(id)
 
-    const { artist, artistDescription, artistWebsite, imageFile } = artistItem[0]
+    // const artistItem = artistData.filter(item => item.id === id)
+
+    // const { artist, artistDescription, artistWebsite, imageFile } = artistItem[0]
+
+    // const { name, description, imageFile, website } = data
 
   return (
     <IonPage className="demo-body">
@@ -26,10 +31,10 @@ const ArtistDetail: React.FC = () => {
         <IonContent className="demo-container" fullscreen>
             <ArtistItemDetail
                 id={id}
-                artist={artist}
-                imageFile={imageFile}
-                artistDescription={artistDescription}
-                artistWebsite={artistWebsite}
+                artist={data?.name}
+                imageFile={data?.imageFile}
+                artistDescription={data?.description}
+                artistWebsite={data?.website}
             />
         </IonContent>
     </IonPage>

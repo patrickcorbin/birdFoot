@@ -3,17 +3,19 @@ import { heart, heartOutline, location } from 'ionicons/icons';
 import './ScheduleItemDetail.css';
 
 interface ContainerProps {
-    id?: string;
-    artist: string;
-    artistID: string;
-    date: string;
-    imageFile: string;
-    perfLocation: string;
-    locationID: string;
-    time: string;
-    title: string;
-    program: Array<any>;
-    description: Array<any>;
+    item: {
+      id?: string;
+      artist: string;
+      artistID: string;
+      date: string;
+      imageFile: string;
+      perfLocation: string;
+      locationID: string;
+      time: string;
+      title: string;
+      program: Array<any>;
+      description: Array<any>;
+    }
     handleAdd: any;
     handleRemove: any;
     isFavorite: boolean;
@@ -21,8 +23,10 @@ interface ContainerProps {
     handleClose?: any;
   }
   
-  const ScheduleItemDetail: React.FC<ContainerProps> = ({ id, artist, artistID, date, imageFile, locationID, perfLocation, time, title, program, description, isFavorite, handleAdd, handleRemove }) => {
+  const ScheduleItemDetail: React.FC<ContainerProps> = ({ item, isFavorite, handleAdd, handleRemove }) => {
     
+    const { artist, artistID, date, imageFile, locationID, perfLocation, time, title, program, description } = item
+
     const programDisplay = program.map(prog => <p key={Math.random()}>{prog.artist && (<b>{prog.artist}:</b>)} {prog.piece}</p> )
 
     const descriptionDisplay = description.map(desc => <p key={Math.random()}>{desc}</p>)
