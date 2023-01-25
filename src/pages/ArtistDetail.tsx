@@ -1,4 +1,4 @@
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonLoading, IonPage, IonToolbar } from '@ionic/react';
 import './ArtistDetail.css';
 import './demo.css';
 // import { artistData } from '../data/schedule.js'
@@ -11,7 +11,7 @@ const ArtistDetail: React.FC = () => {
 
     let { id } = useParams<{ id: string}>();
 
-    const { data } = useArtist(id)
+    const { isLoading, data } = useArtist(id)
 
     // const artistItem = artistData.filter(item => item.id === id)
 
@@ -29,6 +29,9 @@ const ArtistDetail: React.FC = () => {
             </IonToolbar>
         </IonHeader>
         <IonContent className="demo-container" fullscreen>
+            <IonLoading 
+                isOpen={isLoading}
+            />
             <ArtistItemDetail
                 id={id}
                 artist={data?.name}

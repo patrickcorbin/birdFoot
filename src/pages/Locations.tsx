@@ -1,4 +1,4 @@
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonList, IonLoading, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Locations.css';
 // import { locations } from '../data/locations.js';
 import LocationItemLink from '../components/LocationItemLink';
@@ -57,7 +57,7 @@ const Locations: React.FC = () => {
 
   // useIonViewWillEnter(() => createMap());
 
-  const { data: locs } = useLocations()
+  const { isLoading, data: locs } = useLocations()
 
   const locationList = locs?.map(item => {
     return (
@@ -88,6 +88,9 @@ const Locations: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent className="demo-container" fullscreen>
+          <IonLoading 
+            isOpen={isLoading}
+          />
           <IonList className="ion-padding">
             {locationList}
           </IonList>

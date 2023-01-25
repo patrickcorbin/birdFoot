@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonList, IonLoading, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 // import ScheduleIonItem from '../components/ScheduleIonItem';
 import './Tab2.css';
 // import { scheduleData } from '../data/schedule.js'
@@ -13,7 +13,7 @@ interface ContainerProps {
 
 const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavorite }) => {
 
-  const { data } = usePerformances()
+  const { isLoading, data } = usePerformances()
 
   const testDates = data?.map(item => item.dateFull)
   const uniqueTestDates = [...Array.from(new Set(testDates))]
@@ -60,6 +60,9 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding demo-container" fullscreen>
+        <IonLoading 
+          isOpen={isLoading}
+        />
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Schedule</IonTitle>

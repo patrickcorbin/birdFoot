@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar} from '@ionic/react';
+import { IonContent, IonHeader, IonList, IonLoading, IonPage, IonTitle, IonToolbar} from '@ionic/react';
 // import { useState } from 'react';
 import ScheduleIonItem from '../components/ScheduleIonItem';
 import './Tab3.css';
@@ -22,7 +22,7 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
 
   // const schedDetailEl = scheduleData.filter(sched => sched.id === schedDetailId)
 
-  const { data } = usePerformances()
+  const { isLoading, data } = usePerformances()
 
   let myFavoriteArr = data?.filter(sched => myFavorites.includes(sched.id))
   // let myFavoriteArr = scheduleData.filter(sched => myFavorites.includes(sched.id))
@@ -99,6 +99,9 @@ const Tab3: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
         </IonToolbar>
       </IonHeader>
       <IonContent className=" ion-padding demo-container" fullscreen>
+        <IonLoading 
+          isOpen={isLoading}
+        />
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Favorites</IonTitle>

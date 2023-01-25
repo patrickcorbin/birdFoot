@@ -1,4 +1,4 @@
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonToolbar, useIonViewWillEnter } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonLoading, IonPage, IonToolbar, useIonViewWillEnter } from '@ionic/react';
 import './LocationDetail.css';
 import './demo.css';
 // import { locations } from '../data/locations.js';
@@ -12,7 +12,7 @@ const LocationDetail: React.FC = () => {
 
     let { id } = useParams<{ id: string}>();
 
-    const { data: loc } = useLocation(id)
+    const { isLoading, data: loc } = useLocation(id)
 
     const locObj = [
         {
@@ -45,6 +45,9 @@ const LocationDetail: React.FC = () => {
             </IonToolbar>
         </IonHeader>
         <IonContent className="demo-container map-detail" fullscreen>
+            <IonLoading 
+                isOpen={isLoading}
+            />
             <capacitor-google-map 
                 ref={mapRef} 
                 id="map"
