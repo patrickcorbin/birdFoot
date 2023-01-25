@@ -1,4 +1,4 @@
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonLoading, IonPage, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonToolbar } from '@ionic/react';
 import './ItemDetail.css';
 import './demo.css';
 // import { scheduleData } from '../data/schedule.js';
@@ -17,7 +17,7 @@ const ItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, remove
 
     let { id } = useParams<{ id: string}>();
 
-    const { isLoading, data } = usePerformance(id)
+    const { data } = usePerformance(id)
 
     // const schedItem = scheduleData.filter(sched => sched.id === id)
 
@@ -31,9 +31,6 @@ const ItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, remove
             </IonToolbar>
         </IonHeader>
         <IonContent className="demo-container" fullscreen>
-            <IonLoading 
-                isOpen={isLoading}
-            />
             <ScheduleItemDetail
                 artist={data?.artist}
                 artistID={data?.artistId}
