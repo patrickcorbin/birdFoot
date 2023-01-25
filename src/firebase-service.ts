@@ -1,6 +1,6 @@
 // import { dismissOverlay } from "@ionic/core/dist/types/utils/overlays";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc } from "firebase/firestore/lite";
+import { getFirestore, collection, getDocs, doc, getDoc, query, where, orderBy } from "firebase/firestore/lite";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FB_KEY,
@@ -21,8 +21,17 @@ const locationDataCol = collection(db, "locationData")
 
 const API = () => {
 
-    const getCollectionData = async (collection: any) => {
-        const querySnapshot = await getDocs(collection)
+    // const getCollectionData = async (collection: any) => {
+    //     const querySnapshot = await getDocs(collection)
+    //     const results = querySnapshot.docs.map((doc: any) => {
+    //         return {...doc.data(), id: doc.id}
+    //     })
+    //     return results
+    // }
+
+    const getCollectionData = async (collection: any, sortBy: string) => {
+        const q = query(collection, where("active", "==", true), orderBy(sortBy))
+        const querySnapshot = await getDocs(q)
         const results = querySnapshot.docs.map((doc: any) => {
             return {...doc.data(), id: doc.id}
         })
@@ -39,7 +48,7 @@ const API = () => {
     return {
         loadPerfData: async () => {
             console.log('firebase loadPerfData')
-            return await getCollectionData(perfDataCol)
+            return await getCollectionData(perfDataCol, 'dateTime')
         },
         loadPerf: async (id: string) => {
             console.log('firebase loadPerf')
@@ -47,7 +56,7 @@ const API = () => {
         },
         loadArtistData: async () => {
             console.log('firebase loadArtistData')
-            return await getCollectionData(artistDataCol)
+            return await getCollectionData(artistDataCol, 'name')
         },
         loadArtist: async (id: string) => {
             console.log('firebase loadArtist')
@@ -55,7 +64,7 @@ const API = () => {
         },
         loadLocationData: async () => {
             console.log('firebase loadLocationData')
-            return await getCollectionData(locationDataCol)
+            return await getCollectionData(locationDataCol, 'name')
         },
         loadLocation: async (id: string) => {
             console.log('firebase loadLocation')

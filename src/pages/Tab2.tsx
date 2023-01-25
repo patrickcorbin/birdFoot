@@ -21,9 +21,6 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
   // const scheduleDates = scheduleData.map(item => item.dateFull)
   // const uniqueDates = [...Array.from(new Set(scheduleDates))]
 
-  // const testSort = uniqueTestDates.map(date => new Date(date)).sort()
-  // console.log(testSort)
-
   const scheduleGroup = uniqueTestDates.map(date => {
     return (
       <ScheduleGroup 
