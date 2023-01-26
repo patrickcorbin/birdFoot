@@ -6,6 +6,7 @@ import './demo.css';
 import { useParams } from 'react-router';
 import ScheduleItemDetail from '../components/ScheduleItemDetail';
 import { usePerformance } from '../hooks/useFBQueries';
+import ErrorDisplay from '../components/ErrorDisplay';
 
 interface ContainerProps {
     myFavorites: Array<any>;
@@ -31,21 +32,25 @@ const FavItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, rem
             </IonToolbar>
         </IonHeader>
         <IonContent className="demo-container" fullscreen>
-            <ScheduleItemDetail
-                artist={data?.artist}
-                artistID={data?.artistId}
-                date={data?.date}
-                imageFile={data?.imageFile}
-                perfLocation={data?.perfLocation}
-                locationID={data?.locationId}
-                time={data?.time}
-                title={data?.title}
-                program={data?.program}
-                description={data?.description}
-                isFavorite={myFavorites.includes(id)}
-                handleAdd={() => addFavorite(id)}
-                handleRemove={() => removeFavorite(id)}
-            />
+            {
+                data ? 
+                <ScheduleItemDetail
+                    artist={data?.artist}
+                    artistID={data?.artistId}
+                    date={data?.date}
+                    imageFile={data?.imageFile}
+                    perfLocation={data?.perfLocation}
+                    locationID={data?.locationId}
+                    time={data?.time}
+                    title={data?.title}
+                    program={data?.program}
+                    description={data?.description}
+                    isFavorite={myFavorites.includes(id)}
+                    handleAdd={() => addFavorite(id)}
+                    handleRemove={() => removeFavorite(id)}
+                /> : 
+                <ErrorDisplay />
+            }
         </IonContent>
     </IonPage>
   );

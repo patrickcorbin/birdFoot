@@ -1,14 +1,14 @@
-import { IonLabel } from '@ionic/react';
+import './ErrorDisplay.css';
 
-const ErrorDisplay: React.FC<{error: any}> = ({ error }) => {
-    if (!error) return null
-
+const ErrorDisplay: React.FC = () => {
     return (
-        <>
-            <div className="ion-padding">
-                <IonLabel>{error?.message}</IonLabel>
+        <div className="error-container">
+            <div className="error">
+                <img className="logo" src="assets/BF23_Bird.png" alt="Birdfoot bird" />
+                <h3>Uh oh!</h3>
+                <p>We can't seem to find what you're looking for...</p>
             </div>
-        </>
+        </div>
     )
 }
 

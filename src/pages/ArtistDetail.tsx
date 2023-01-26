@@ -6,18 +6,18 @@ import './demo.css';
 import { useParams } from 'react-router';
 import ArtistItemDetail from '../components/ArtistItemDetail';
 import { useArtist } from '../hooks/useFBQueries';
+import ErrorDisplay from '../components/ErrorDisplay';
 
 const ArtistDetail: React.FC = () => {
 
     let { id } = useParams<{ id: string}>();
 
     const { data } = useArtist(id)
+    // const { data } = useArtistTest(id)
 
     // const artistItem = artistData.filter(item => item.id === id)
 
     // const { artist, artistDescription, artistWebsite, imageFile } = artistItem[0]
-
-    // const { name, description, imageFile, website } = data
 
   return (
     <IonPage className="demo-body">
@@ -29,13 +29,17 @@ const ArtistDetail: React.FC = () => {
             </IonToolbar>
         </IonHeader>
         <IonContent className="demo-container" fullscreen>
+            {
+            data ? 
             <ArtistItemDetail
                 id={id}
                 artist={data?.name}
                 imageFile={data?.imageFile}
                 artistDescription={data?.description}
                 artistWebsite={data?.website}
-            />
+            /> : 
+            <ErrorDisplay />
+            }
         </IonContent>
     </IonPage>
   );

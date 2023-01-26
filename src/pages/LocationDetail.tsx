@@ -7,6 +7,7 @@ import { useMaps } from '../hooks/useMaps';
 import { useParams } from 'react-router';
 import LocationItem from '../components/LocationItem';
 import { useLocation } from '../hooks/useFBQueries';
+import ErrorDisplay from '../components/ErrorDisplay';
 
 const LocationDetail: React.FC = () => {
 
@@ -45,16 +46,22 @@ const LocationDetail: React.FC = () => {
             </IonToolbar>
         </IonHeader>
         <IonContent className="demo-container map-detail" fullscreen>
-            <capacitor-google-map 
-                ref={mapRef} 
-                id="map"
-                className="test-map"
-            ></capacitor-google-map>
-            <LocationItem
-                key={id}
-                marker={locObj[0]}
-                line={false}
-            />
+            {
+                loc ? 
+                <>
+                    <capacitor-google-map 
+                        ref={mapRef} 
+                        id="map"
+                        className="test-map"
+                    ></capacitor-google-map>
+                    <LocationItem
+                        key={id}
+                        marker={locObj[0]}
+                        line={false}
+                    />  
+                </> : 
+                <ErrorDisplay />
+            }
         </IonContent>
     </IonPage>
   );

@@ -12,7 +12,7 @@ interface ContainerProps {
 
     // const { artist, imageFile, artistDescription, artistWebsite } = artistObj
 
-    const descriptionDisplay = artistDescription.map(desc => <p key={Math.random()}>{desc}</p>)
+    const descriptionDisplay = artistDescription?.map(desc => <p key={Math.random()}>{desc}</p>)
     
     return (
       <div className="artistItemDetail">
