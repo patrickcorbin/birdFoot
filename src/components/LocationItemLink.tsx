@@ -4,7 +4,7 @@ import './LocationItem.css';
 interface ContainerProps {
   marker: {
     id: string;
-    title: string;
+    name: string;
     imageFile: string;
     address: string;
 };
@@ -13,7 +13,7 @@ interface ContainerProps {
 
 const LocationItemLink: React.FC<ContainerProps> = ({ marker, line }) => {
 
-  const { id, title, imageFile, address } = marker
+  const { id, name, imageFile, address } = marker
 
   return (
     <IonItem
@@ -23,11 +23,11 @@ const LocationItemLink: React.FC<ContainerProps> = ({ marker, line }) => {
         routerLink={`/locations/${id}`}
     >
         <IonThumbnail slot="start">
-            <img src={`./assets/images/${imageFile}`} alt={title} />
+            <img src={`./assets/images/${imageFile}`} alt={name} />
         </IonThumbnail>
         <div className="sched-item__body" >
             <h2 className="sched-item__body-title">
-                {title}
+                {name}
             </h2>
             <p className="sched-item__body-artist">
                 {address}

@@ -2,12 +2,18 @@ import { IonItem, IonThumbnail} from '@ionic/react';
 import './ArtistItem.css';
 
 interface ContainerProps {
-  id?: string;
-  artist: string;
-  imageFile: string;
+  item: {
+    id: string;
+    artist?: string;
+    name: string;
+    imageFile: string;
+  }
 }
 
-const ArtistItem: React.FC<ContainerProps> = ({ id, artist, imageFile }) => {
+const ArtistItem: React.FC<ContainerProps> = ({ item }) => {
+
+  const { id, name, imageFile } = item
+
   return (
     <IonItem 
         className="sched-item" 
@@ -16,11 +22,11 @@ const ArtistItem: React.FC<ContainerProps> = ({ id, artist, imageFile }) => {
         routerLink={`/artists/${id}`}
     >
           <IonThumbnail slot="start">
-            <img src={`./assets/images/${imageFile}`} alt={artist} />
+            <img src={`./assets/images/${imageFile}`} alt={name} />
           </IonThumbnail>
           <div className="sched-item__body" >
             <h2 className="sched-item__body-title">
-                {artist}
+                {name}
             </h2>
           </div>
       </IonItem>

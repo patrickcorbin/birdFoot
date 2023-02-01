@@ -4,7 +4,7 @@ import './LocationItem.css';
 interface ContainerProps {
     marker: {
         id: string;
-        title: string;
+        name: string;
         imageFile: string;
         address: string;
     };
@@ -19,11 +19,11 @@ const LocationItem: React.FC<ContainerProps> = ({ marker, line }) => {
         detail={false}
     >
         <IonThumbnail slot="start">
-            <img src={`./assets/images/${marker.imageFile}`} alt={marker.title} />
+            <img src={`./assets/images/${marker.imageFile}`} alt={marker.name} />
         </IonThumbnail>
         <div className="sched-item__body" >
             <h2 className="sched-item__body-title">
-                {marker.title}
+                {marker.name}
             </h2>
             <p className="sched-item__body-artist">
                 {marker.address}

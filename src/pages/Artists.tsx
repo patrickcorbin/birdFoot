@@ -1,17 +1,18 @@
 import { IonBackButton, IonButtons, IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Artists.css';
 import ArtistItem from '../components/ArtistItem';
-import { artistData } from '../data/schedule.js'
+// import { artistData } from '../data/schedule.js';
+import { useArtists } from '../hooks/useFBQueries';
 
 const Artists: React.FC = () => {
-  
-    const artists = artistData.map(item => {
+
+    const { data } = useArtists()
+
+    const artists = data?.map((item: any) => {
       return (
         <ArtistItem 
           key={item.id}
-          id={item.id}
-          artist={item.artist}
-          imageFile={item.imageFile}
+          item={item}
         />
       )
     })
@@ -27,11 +28,6 @@ const Artists: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding demo-container" fullscreen>
-          {/* <IonHeader collapse="condense">
-            <IonToolbar>
-              <IonTitle size="large">Artists</IonTitle>
-            </IonToolbar>
-          </IonHeader> */}
           <IonList>
             {artists}
           </IonList>          

@@ -36,7 +36,7 @@ export function useStorage() {
         const newFavs = favs.filter(fav => fav !== id);
         setFavs(prevFavs => prevFavs.filter(fav => fav !== id));
         store!.set(MYFAV_KEY, newFavs)
-        console.log(favs)
+        // console.log(favs)
     }
 
     return {

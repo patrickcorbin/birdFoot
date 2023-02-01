@@ -1,0 +1,23 @@
+.error-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8vh 2em 0 2em;
+  }
+  
+  .error-container strong {
+    font-size: 26px;
+    line-height: 26px;
+  }
+  
+  .error-container p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #8c8c8c;
+    margin: 0;
+  }
+  
+  .error-container a {
+    text-decoration: none;
+  }

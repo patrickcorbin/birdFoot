@@ -1,10 +1,12 @@
 import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonToolbar } from '@ionic/react';
 import './ItemDetail.css';
 import './demo.css';
-import { scheduleData } from '../data/schedule.js'
+// import { scheduleData } from '../data/schedule.js';
 
 import { useParams } from 'react-router';
 import ScheduleItemDetail from '../components/ScheduleItemDetail';
+import { usePerformance } from '../hooks/useFBQueries';
+import ErrorDisplay from '../components/ErrorDisplay';
 
 interface ContainerProps {
     myFavorites: Array<any>;
@@ -16,9 +18,9 @@ const ItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, remove
 
     let { id } = useParams<{ id: string}>();
 
-    const schedItem = scheduleData.filter(sched => sched.id === id)
+    const { data } = usePerformance(id)
 
-    const { artist, artistID, date, description, imageFile, locationID, perfLocation, program, time, title } = schedItem[0]
+    // const schedItem = scheduleData.filter(sched => sched.id === id)
 
   return (
     <IonPage className="demo-body">
@@ -30,22 +32,25 @@ const ItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, remove
             </IonToolbar>
         </IonHeader>
         <IonContent className="demo-container" fullscreen>
-            <ScheduleItemDetail
-                id={id}
-                artist={artist}
-                artistID={artistID}
-                date={date}
-                imageFile={imageFile}
-                perfLocation={perfLocation}
-                locationID={locationID}
-                time={time}
-                title={title}
-                program={program}
-                description={description}
-                isFavorite={myFavorites.includes(id)}
-                handleAdd={() => addFavorite(id)}
-                handleRemove={() => removeFavorite(id)}
-            />
+            {
+                data ?
+                <ScheduleItemDetail
+                    artist={data?.artist}
+                    artistID={data?.artistId}
+                    date={data?.date}
+                    imageFile={data?.imageFile}
+                    perfLocation={data?.perfLocation}
+                    locationID={data?.locationId}
+                    time={data?.time}
+                    title={data?.title}
+                    program={data?.program}
+                    description={data?.description}
+                    isFavorite={myFavorites.includes(id)}
+                    handleAdd={() => addFavorite(id)}
+                    handleRemove={() => removeFavorite(id)}
+                /> :
+                <ErrorDisplay />
+            }
         </IonContent>
     </IonPage>
   );

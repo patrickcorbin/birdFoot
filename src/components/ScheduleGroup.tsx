@@ -1,9 +1,11 @@
 import { IonItemDivider, IonItemGroup, IonLabel} from '@ionic/react';
 import ScheduleIonItem from '../components/ScheduleIonItem';
-import { scheduleData } from '../data/schedule.js'
+// import { scheduleData } from '../data/schedule.js';
+import { usePerformances } from '../hooks/useFBQueries';
 
 interface ContainerProps {
-  dateFull: string;
+  dateFull?: string;
+  dateTest?: Date;
   myFavorites: Array<any>;
   addFavorite: any;
   removeFavorite: any;
@@ -11,20 +13,18 @@ interface ContainerProps {
 
 const ScheduleGroup: React.FC<ContainerProps> = ({ dateFull, myFavorites, addFavorite, removeFavorite }) => {
 
-    const groupData = scheduleData.filter(item => item.dateFull === dateFull)
+    const { data } = usePerformances()
 
-    const scheduleGroup = groupData.map(item => {
+    const groupDataFB = data?.filter(item => item.dateFull === dateFull)
+
+    // const groupData = scheduleData.filter(item => item.dateFull === dateFull)
+
+    const scheduleGroup = groupDataFB?.map(item => {
         return (
           <ScheduleIonItem 
             key={item.id}
-            id={item.id}
+            item={item}
             parentPage={'schedule'}
-            artist={item.artist}
-            date={item.date}
-            imageFile={item.imageFile}
-            perfLocation={item.perfLocation}
-            time={item.time}
-            title={item.title}
             isFavorite={myFavorites.includes(item.id)}
             handleAdd={(e: TouchEvent) => {addFavorite(item.id); e.stopPropagation(); e.preventDefault();}}
             handleRemove={(e: any) => {removeFavorite(item.id); e.stopPropagation(); e.preventDefault();}}
