@@ -1,8 +1,9 @@
 import { IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 // import ScheduleIonItem from '../components/ScheduleIonItem';
 import './Tab2.css';
-import { scheduleData } from '../data/schedule.js'
+// import { scheduleData } from '../data/schedule.js'
 import ScheduleGroup from '../components/ScheduleGroup';
+import { usePerformances } from '../hooks/useFBQueries';
 
 interface ContainerProps {
   myFavorites: Array<any>;
@@ -12,10 +13,15 @@ interface ContainerProps {
 
 const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavorite }) => {
 
-  const scheduleDates = scheduleData.map(item => item.dateFull)
-  const uniqueDates = [...Array.from(new Set(scheduleDates))]
+  const { data } = usePerformances()
 
-  const scheduleGroup = uniqueDates.map(date => {
+  const testDates = data?.map(item => item.dateFull)
+  const uniqueTestDates = [...Array.from(new Set(testDates))]
+
+  // const scheduleDates = scheduleData.map(item => item.dateFull)
+  // const uniqueDates = [...Array.from(new Set(scheduleDates))]
+
+  const scheduleGroup = uniqueTestDates.map(date => {
     return (
       <ScheduleGroup 
         key={date}

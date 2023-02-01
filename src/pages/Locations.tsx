@@ -1,7 +1,8 @@
 import { IonBackButton, IonButtons, IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Locations.css';
-import { locations } from '../data/locations.js';
+// import { locations } from '../data/locations.js';
 import LocationItemLink from '../components/LocationItemLink';
+import { useLocations } from '../hooks/useFBQueries';
 
 const Locations: React.FC = () => {
 
@@ -56,7 +57,9 @@ const Locations: React.FC = () => {
 
   // useIonViewWillEnter(() => createMap());
 
-  const locationList = locations.map(item => {
+  const { data: locs } = useLocations()
+
+  const locationList = locs?.map(item => {
     return (
       <LocationItemLink 
         key={item.id}

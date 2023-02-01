@@ -1,8 +1,14 @@
 import { IonButton, IonContent, IonPage } from '@ionic/react';
 import './Tab1.css';
 import './demo.css';
+import { useArtists, useLocations, usePerformances } from '../hooks/useFBQueries';
 
 const Tab1: React.FC = () => {
+
+  usePerformances()
+  useArtists()
+  useLocations()
+
   return (
     <IonPage className="demo-body">
         <IonContent className="ion-padding demo-container" fullscreen>

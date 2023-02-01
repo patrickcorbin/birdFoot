@@ -2,7 +2,6 @@ import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, Io
 import './About.css';
 
 const About: React.FC = () => {
-  
     return (
       <IonPage className="demo-body">
         <IonHeader>
@@ -21,7 +20,6 @@ const About: React.FC = () => {
           </IonHeader> */}
           <img className="about__img" src='./assets/images/flood.jpg' alt='MS River Birdfoot' />
           <div className="about-container">
-
             <h2>The Birdfoot Festival -
                 New Orleans’ International Chamber Music Festival
             </h2>
