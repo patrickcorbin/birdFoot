@@ -32,9 +32,9 @@ interface ContainerProps {
                     detail={true}
                     routerLink={`/artists/${artist.artistId}`}  
               >
-                <h3 className="schedItemDetail__body-artist">
+                <p className="schedItemDetail__body-artist">
                     {artist.artistName}
-                </h3>
+                </p>
               </IonItem>
             )
     })

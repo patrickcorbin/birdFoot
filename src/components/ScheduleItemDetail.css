@@ -20,12 +20,15 @@
 
 .schedItemDetail__body-artist {
     margin: .25em 0;
+    font-size: 1.25rem;
+    /* font-weight: 600; */
+    margin: .25em 0;
 }
 
 .schedItemDetail__body-date {
     display: flex;
     justify-content: space-between;
-    margin-bottom: .5em;
+    margin: .25em 0 .5em 0;
 }
 
 .schedItemDetail__body-location {
