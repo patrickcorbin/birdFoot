@@ -15,6 +15,11 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    margin-bottom: .75em;
+}
+
+.schedItemDetail__body-artist {
+    margin: .25em 0;
 }
 
 .schedItemDetail__body-date {

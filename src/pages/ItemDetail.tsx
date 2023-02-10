@@ -37,6 +37,7 @@ const ItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, remove
                 <ScheduleItemDetail
                     artist={data?.artist}
                     artistID={data?.artistId}
+                    artists={data?.artists}
                     date={data?.date}
                     imageFile={data?.imageFile}
                     perfLocation={data?.perfLocation}

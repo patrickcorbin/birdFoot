@@ -6,13 +6,14 @@ interface ContainerProps {
     id?: string;
     artist: string;
     artistID: string;
+    artists: Array<any>;
     date: string;
     imageFile: string;
     perfLocation: string;
     locationID: string;
     time: string;
     title: string;
-    program: Array<any>;
+    program?: Array<any>;
     description: Array<any>;
     handleAdd: any;
     handleRemove: any;
@@ -21,9 +22,24 @@ interface ContainerProps {
     handleClose?: any;
   }
   
-  const ScheduleItemDetail: React.FC<ContainerProps> = ({ artist, artistID, date, imageFile, perfLocation, locationID, time, title, program, description, isFavorite, handleAdd, handleRemove }) => {
+    const ScheduleItemDetail: React.FC<ContainerProps> = ({ artist, artists, artistID, date, imageFile, perfLocation, locationID, time, title, program, description, isFavorite, handleAdd, handleRemove }) => {
 
-    const programDisplay = program.map(prog => <p key={Math.random()}>{prog.artist && (<b>{prog.artist}:</b>)} {prog.piece}</p> )
+    const artistDisplay = artists?.map(artist => {
+      return (
+              <IonItem
+                    className="itemDetail-item"
+                    lines='none'
+                    detail={true}
+                    routerLink={`/artists/${artist.artistId}`}  
+              >
+                <h3 className="schedItemDetail__body-artist">
+                    {artist.artistName}
+                </h3>
+              </IonItem>
+            )
+    })
+
+    const programDisplay = program?.map(prog => <p key={Math.random()}>{prog.artist && (<b>{prog.artist}:</b>)} {prog.piece}</p> )
 
     const descriptionDisplay = description.map(desc => <p key={Math.random()}>{desc}</p>)
     
@@ -41,7 +57,8 @@ interface ContainerProps {
                 icon={isFavorite ? heart : heartOutline}
               ></IonIcon>
             </div>
-            <IonItem
+            {artistDisplay}
+            {/* <IonItem
               className="itemDetail-item"
               lines='none'
               detail={true}
@@ -50,7 +67,7 @@ interface ContainerProps {
               <h3 className="schedItemDetail__body-artist">
                   {artist}
               </h3>
-            </IonItem>
+            </IonItem> */}
             <div className="schedItemDetail__body-date">
                 <div>{date}</div>
                 <div>{time}</div>
@@ -66,8 +83,8 @@ interface ContainerProps {
                 <span className="location-text">{perfLocation}</span>
               </div>
             </IonItem>
-            <h3 className="schedItemDetail__description-title">Program:</h3>
-            <p>Selections from</p>
+            <h3 className="schedItemDetail__description-title">{program ? 'Program:' : 'Description:'}</h3>
+            {program && <p>Selections from</p>}
             {programDisplay}
             {descriptionDisplay}
         </div>
