@@ -16,13 +16,13 @@ const Tab1: React.FC = () => {
             <img className="logo" src="assets/BF_logo.png" alt="Birdfoot Logo" />
             <div className="home__body">
               <p>
-                Birdfoot Festival is back with a season of music-making that explores our entwined relationship with the natural world. At the heart of Birdfoot 2023 is a musical pilgrimage that reaches beyond the concert hall to celebrate the mythic dimensions of nature, bear witness to environmental injustices, and meditate on our place in the world.
+                Birdfoot Festival is back with a season of music-making that explores our entwined relationship with the natural world. At the heart of Birdfoot 2023 is a musical pilgrimage that reaches beyond the concert hall to celebrate the mythic dimensions of nature, bear witness to environmental degradation, and meditate on our place in the world.
               </p>
               <p>
                 Join us on this journey of musical contemplation.
               </p>
             </div>
-            <IonButton color="primary" size='large' expand='block' href='#'>
+            <IonButton color="primary" size='large' expand='block' href='https://secure.lglforms.com/form_engine/s/NkfKv2wQOwOVanRzsMp9qg' target="_blank">
               Purchase Tickets
             </IonButton>
             <img className="bird" src="assets/BF_Bird.png" alt="Birdfoot Bird" />

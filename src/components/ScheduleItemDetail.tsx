@@ -1,4 +1,4 @@
-import { IonIcon, IonItem } from '@ionic/react';
+import { IonButton, IonIcon, IonItem } from '@ionic/react';
 import { heart, heartOutline, location } from 'ionicons/icons';
 import './ScheduleItemDetail.css';
 
@@ -13,8 +13,11 @@ interface ContainerProps {
     locationID: string;
     time: string;
     title: string;
-    program?: Array<any>;
     description: Array<any>;
+    price?: Array<any>;
+    program?: Array<any>;
+    reservationLink?: string;
+    reservationText?: string;
     handleAdd: any;
     handleRemove: any;
     isFavorite: boolean;
@@ -22,7 +25,7 @@ interface ContainerProps {
     handleClose?: any;
   }
   
-    const ScheduleItemDetail: React.FC<ContainerProps> = ({ artist, artists, artistID, date, imageFile, perfLocation, locationID, time, title, program, description, isFavorite, handleAdd, handleRemove }) => {
+    const ScheduleItemDetail: React.FC<ContainerProps> = ({ artists, date, imageFile, perfLocation, locationID, time, title, description, price, program, reservationLink, reservationText, isFavorite, handleAdd, handleRemove }) => {
 
     const artistDisplay = artists?.map(artist => {
       return (
@@ -41,11 +44,13 @@ interface ContainerProps {
 
     const programDisplay = program?.map(prog => <p key={Math.random()}>{prog.artist && (<b>{prog.artist}:</b>)} {prog.piece}</p> )
 
+    const priceDisplay = price?.map(price => <p key={Math.random()}>{price}</p>)
+
     const descriptionDisplay = description.map(desc => <p key={Math.random()}>{desc}</p>)
     
     return (
       <div className="schedItemDetail">
-        <img className="schedItemDetail__img" src={`./assets/images/${imageFile}`} alt={artist} />
+        <img className="schedItemDetail__img" src={`./assets/images/${imageFile}`} alt={title} />
         <div className="schedItemDetail__body">
             <div className="schedItemDetail__body-title">
               <h2>
@@ -83,6 +88,11 @@ interface ContainerProps {
                 <span className="location-text">{perfLocation}</span>
               </div>
             </IonItem>
+            {price && <h3 className="schedItemDetail__description-title">Price:</h3>}
+            {priceDisplay}
+            {reservationLink && <IonButton color="primary" size='default' expand='block' href={reservationLink} target="_blank">
+                                  {reservationText}
+                                </IonButton>}
             <h3 className="schedItemDetail__description-title">{program ? 'Program:' : 'Description:'}</h3>
             {program && <p>Selections from</p>}
             {programDisplay}

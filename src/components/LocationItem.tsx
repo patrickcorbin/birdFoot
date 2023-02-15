@@ -7,6 +7,7 @@ interface ContainerProps {
         name: string;
         imageFile: string;
         address: string;
+        neighborhood: string;
     };
   line: boolean;
 }
@@ -27,6 +28,9 @@ const LocationItem: React.FC<ContainerProps> = ({ marker, line }) => {
             </h2>
             <p className="sched-item__body-artist">
                 {marker.address}
+            </p>
+            <p className="sched-item__body-artist">
+                {marker.neighborhood}
             </p>
         </div>
     </IonItem>

@@ -44,8 +44,11 @@ const FavItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, rem
                     locationID={data?.locationId}
                     time={data?.time}
                     title={data?.title}
-                    program={data?.program}
                     description={data?.description}
+                    price={data?.price}
+                    program={data?.program}
+                    reservationLink={data?.reservationLink}
+                    reservationText={data?.reservationText}
                     isFavorite={myFavorites.includes(id)}
                     handleAdd={() => addFavorite(id)}
                     handleRemove={() => removeFavorite(id)}
