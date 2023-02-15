@@ -18,7 +18,7 @@ const About: React.FC = () => {
               <IonTitle size="large">About</IonTitle>
             </IonToolbar>
           </IonHeader> */}
-          <img className="about__img" src='./assets/images/flood.jpg' alt='MS River Birdfoot' />
+          <img className="about__img" src='./assets/images/BF2023/flood.jpg' alt='MS River Birdfoot' />
           <div className="about-container">
             <h2>The Birdfoot Festival -
                 New Orleans’ International Chamber Music Festival

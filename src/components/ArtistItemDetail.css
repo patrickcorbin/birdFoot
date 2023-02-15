@@ -6,13 +6,13 @@
 }
 
 .artistItemDetail__img {
-    height: 250px;
+    height: 400px;
     width: 100%;
     object-fit: cover;
 }
 
 @media (width >= 750px) {
     .artistItemDetail__img {
-        height: 400px;
+        height: 500px;
     }
 }
