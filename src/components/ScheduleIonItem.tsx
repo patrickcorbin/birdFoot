@@ -40,9 +40,9 @@ const ScheduleIonItem: React.FC<ContainerProps> = ({ item, parentPage, isFavorit
             <h2 className="sched-item__body-title">
                 {item.title}
             </h2>
-            <p className="sched-item__body-artist">
+            {/* <p className="sched-item__body-artist">
                 {item.artist}
-            </p>
+            </p> */}
             <p className="sched-item__body-date">
                 {item.date}, {item.time}
             </p>
