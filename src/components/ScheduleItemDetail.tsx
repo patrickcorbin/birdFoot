@@ -4,15 +4,13 @@ import './ScheduleItemDetail.css';
 
 interface ContainerProps {
     id?: string;
-    artist: string;
-    artistID: string;
     artists: Array<any>;
     date: string;
     imageFile: string;
-    perfLocation: string;
-    locationID: string;
+    locations?: Array<any>;
     time: string;
     title: string;
+    titleFull?: Array<any>;
     description: Array<any>;
     price?: Array<any>;
     program?: Array<any>;
@@ -25,8 +23,10 @@ interface ContainerProps {
     handleClose?: any;
   }
   
-    const ScheduleItemDetail: React.FC<ContainerProps> = ({ artists, date, imageFile, perfLocation, locationID, time, title, description, price, program, reservationLink, reservationText, isFavorite, handleAdd, handleRemove }) => {
+    const ScheduleItemDetail: React.FC<ContainerProps> = ({ artists, date, imageFile, locations, time, title, titleFull, description, price, program, reservationLink, reservationText, isFavorite, handleAdd, handleRemove }) => {
 
+    const titleDisplay = titleFull?.map(line => <h2 className="scheduleItemDetail__body-title-main" key={Math.random()}>{line}</h2>)
+    
     const artistDisplay = artists?.map(artist => {
       return (
               <IonItem
@@ -42,6 +42,26 @@ interface ContainerProps {
             )
     })
 
+    const locationDisplay = locations?.map(loc => {
+      return (
+        <>
+          {loc.locationLabel && <h4 className="schedItemDetail__description-title-location">{loc.locationLabel}</h4>}
+          <IonItem
+            className="itemDetail-item"
+            lines='none'
+            detail={true}
+            routerLink={`/locations/${loc.locationId}`}
+          >
+            <div className="schedItemDetail__body-location">
+              <IonIcon className="icon-purple" icon={location} />
+              <span className="location-text">{loc.locationName}</span>
+            </div>
+          </IonItem>  
+        </>
+      )
+    })
+
+
     const programDisplay = program?.map(prog => <p key={Math.random()}>{prog.artist && (<b>{prog.artist}:</b>)} {prog.piece}</p> )
 
     const priceDisplay = price?.map(price => <p key={Math.random()}>{price}</p>)
@@ -53,41 +73,23 @@ interface ContainerProps {
         <img className="schedItemDetail__img" src={`./assets/images/${imageFile}`} alt={title} />
         <div className="schedItemDetail__body">
             <div className="schedItemDetail__body-title">
-              <h2>
-                  {title}
-              </h2>
-              <IonIcon 
-                className="add-icon icon-purple" 
-                onClick={isFavorite ? handleRemove : handleAdd}
-                icon={isFavorite ? heart : heartOutline}
-              ></IonIcon>
+              <div>
+                  {titleDisplay}
+              </div>
+              <div className="icon-container">
+                <IonIcon 
+                  className="add-icon icon-purple" 
+                  onClick={isFavorite ? handleRemove : handleAdd}
+                  icon={isFavorite ? heart : heartOutline}
+                ></IonIcon>
+              </div>
             </div>
             {artistDisplay}
-            {/* <IonItem
-              className="itemDetail-item"
-              lines='none'
-              detail={true}
-              routerLink={`/artists/${artistID}`}  
-            >
-              <h3 className="schedItemDetail__body-artist">
-                  {artist}
-              </h3>
-            </IonItem> */}
             <div className="schedItemDetail__body-date">
                 <div>{date}</div>
                 <div>{time}</div>
             </div>
-            <IonItem
-              className="itemDetail-item"
-              lines='none'
-              detail={true}
-              routerLink={`/locations/${locationID}`}
-            >
-              <div className="schedItemDetail__body-location">
-                <IonIcon className="icon-purple" icon={location} />
-                <span className="location-text">{perfLocation}</span>
-              </div>
-            </IonItem>
+            {locationDisplay}
             {price && <h3 className="schedItemDetail__description-title">Price:</h3>}
             {priceDisplay}
             {reservationLink && <IonButton color="primary" size='default' expand='block' href={reservationLink} target="_blank">

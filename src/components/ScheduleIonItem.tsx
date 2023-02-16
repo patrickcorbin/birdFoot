@@ -8,7 +8,9 @@ interface ContainerProps {
     artist: string;
     date: string;
     imageFile: string;
+    locations: Array<any>;
     perfLocation: string;
+    perfLocationEnd: string;
     time: string;
     title: string;
   }
@@ -48,7 +50,7 @@ const ScheduleIonItem: React.FC<ContainerProps> = ({ item, parentPage, isFavorit
             </p>
             <div className="sched-item__body-location">
               <IonIcon className="icon-purple icon-loc" icon={location} />
-              <span className="location-text">{item.perfLocation}</span>
+              <span className="location-text">{item.locations?.map(loc => loc.locationName).join(' / ')}</span>
             </div>
           </div>
       </IonItem>

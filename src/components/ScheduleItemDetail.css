@@ -12,10 +12,22 @@
 }
 
 .schedItemDetail__body-title {
-    display: flex;
+    /* display: flex;
+    justify-content: space-between; */
+    display: grid;
+    grid-template-columns: 85% 15%;
     justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: .75em;
+    column-gap: 1em;
+    align-items: center;
+    margin: .75em 0;
+}
+
+.icon-container {
+    justify-self: center;
+}
+
+.scheduleItemDetail__body-title-main {
+    margin: .2em 0;
 }
 
 .schedItemDetail__body-artist {
