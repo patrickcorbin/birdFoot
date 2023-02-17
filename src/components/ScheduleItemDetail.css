@@ -60,6 +60,10 @@
     color: #830053;
 }
 
+IonButton {
+    --background-activated-opacity: .75;
+}
+
 ion-item.itemDetail-item {
     --padding-start: 0;
     --padding-end: 0;

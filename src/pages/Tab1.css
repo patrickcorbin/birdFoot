@@ -27,6 +27,10 @@ IonButton {
     background: #830053;
 }
 
+IonButton {
+    --background-activated-opacity: .75;
+}
+
 @media (min-height: 760px) {
     .bird {
         position: absolute;
