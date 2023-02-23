@@ -15,8 +15,11 @@ const Tab1: React.FC = () => {
           <div className="home-container">
             <img className="logo" src="assets/BF_logo.png" alt="Birdfoot Logo" />
             <div className="home__body">
-              <p>
+              {/* <p>
                 Birdfoot Festival is back with a season of music-making that explores our entwined relationship with the natural world. At the heart of Birdfoot 2023 is a musical pilgrimage that reaches beyond the concert hall to celebrate the mythic dimensions of nature, bear witness to environmental degradation, and meditate on our place in the world.
+              </p> */}
+              <p>
+                Birdfoot is back with a season of music-making that expolores our entwined relationship with the natural world. At the heart to Birdfoot 2023 is a musical pilgrimage that takes audience members beyond the concert hall to explore our relationship with music and the natural world.
               </p>
               <p>
                 Join us on this journey of musical contemplation. Get a full season pass below or visit event pages to make individual reservations.

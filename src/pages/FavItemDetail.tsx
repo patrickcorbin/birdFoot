@@ -51,7 +51,9 @@ const FavItemDetail: React.FC<ContainerProps> = ({ myFavorites, addFavorite, rem
                     handleAdd={() => addFavorite(id)}
                     handleRemove={() => removeFavorite(id)}
                 /> : 
-                <ErrorDisplay />
+                <ErrorDisplay
+                    message={"We can't seem to find what you're looking for..."}
+                />
             }
         </IonContent>
     </IonPage>

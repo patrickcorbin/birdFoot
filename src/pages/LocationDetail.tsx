@@ -60,7 +60,9 @@ const LocationDetail: React.FC = () => {
                         line={false}
                     />  
                 </> : 
-                <ErrorDisplay />
+                <ErrorDisplay
+                    message={"We can't seem to find what you're looking for..."}
+                />
             }
         </IonContent>
     </IonPage>

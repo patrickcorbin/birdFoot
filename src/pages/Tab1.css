@@ -1,7 +1,7 @@
 .logo {
     max-width: 250px;
     align-self: center;
-    padding: 1em 0;
+    padding: 4em 0 1em 0;
     /* width: 50%; */
 }
 
@@ -31,11 +31,11 @@ IonButton {
     --background-activated-opacity: .75;
 }
 
-@media (min-height: 760px) {
+/* @media (min-height: 760px) {
     .bird {
         position: absolute;
         bottom: 0;
         margin-bottom: 56px;
         display: block;
     }
-}
+} */

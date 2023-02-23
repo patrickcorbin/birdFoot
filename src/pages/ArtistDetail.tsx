@@ -38,7 +38,9 @@ const ArtistDetail: React.FC = () => {
                 artistDescription={data?.description}
                 artistWebsite={data?.website}
             /> : 
-            <ErrorDisplay />
+            <ErrorDisplay
+                message={"We can't seem to find what you're looking for..."}
+            />
             }
         </IonContent>
     </IonPage>

@@ -1,9 +1,8 @@
 import { IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-// import ScheduleIonItem from '../components/ScheduleIonItem';
 import './Tab2.css';
-// import { scheduleData } from '../data/schedule.js'
 import ScheduleGroup from '../components/ScheduleGroup';
 import { usePerformances } from '../hooks/useFBQueries';
+import ErrorDisplay from '../components/ErrorDisplay';
 
 interface ContainerProps {
   myFavorites: Array<any>;
@@ -18,9 +17,6 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
   const testDates = data?.map(item => item.dateFull)
   const uniqueTestDates = [...Array.from(new Set(testDates))]
 
-  // const scheduleDates = scheduleData.map(item => item.dateFull)
-  // const uniqueDates = [...Array.from(new Set(scheduleDates))]
-
   const scheduleGroup = uniqueTestDates.map(date => {
     return (
       <ScheduleGroup 
@@ -33,25 +29,6 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
     )
   })
 
-  // const schedule = scheduleData.map(item => {
-  //   return (
-  //     <ScheduleIonItem 
-  //       key={item.id}
-  //       id={item.id}
-  //       parentPage={'schedule'}
-  //       artist={item.artist}
-  //       date={item.date}
-  //       imageFile={item.imageFile}
-  //       perfLocation={item.perfLocation}
-  //       time={item.time}
-  //       title={item.title}
-  //       isFavorite={myFavorites.includes(item.id)}
-  //       handleAdd={(e: TouchEvent) => {addFavorite(item.id); e.stopPropagation(); e.preventDefault();}}
-  //       handleRemove={(e: any) => {removeFavorite(item.id); e.stopPropagation(); e.preventDefault();}}
-  //     />
-  //   )
-  // })
-
   return (
     <IonPage className="demo-body">
       <IonHeader>
@@ -60,14 +37,22 @@ const Tab2: React.FC<ContainerProps> = ({ myFavorites, addFavorite, removeFavori
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding demo-container" fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Schedule</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <IonList>
-          {scheduleGroup}
-        </IonList>
+        {
+          data ?
+          <>
+            <IonHeader collapse="condense">
+            <IonToolbar>
+              <IonTitle size="large">Schedule</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+          <IonList>
+            {scheduleGroup}
+          </IonList>
+          </> :
+          <ErrorDisplay
+              message={"Schedule not loading right now..."}
+          />
+        }
       </IonContent>
     </IonPage>
   );

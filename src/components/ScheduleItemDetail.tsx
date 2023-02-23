@@ -53,7 +53,7 @@ interface ContainerProps {
             routerLink={`/locations/${loc.locationId}`}
           >
             <div className="schedItemDetail__body-location">
-              <IonIcon className="icon-purple" icon={location} />
+              <IonIcon className="icon-purple icon-loc" icon={location} />
               <span className="location-text">{loc.locationName}</span>
             </div>
           </IonItem>  
