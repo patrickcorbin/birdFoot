@@ -3,6 +3,7 @@ import './Artists.css';
 import ArtistItem from '../components/ArtistItem';
 // import { artistData } from '../data/schedule.js';
 import { useArtists } from '../hooks/useFBQueries';
+import ErrorDisplay from '../components/ErrorDisplay';
 
 const Artists: React.FC = () => {
 
@@ -28,9 +29,15 @@ const Artists: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding demo-container" fullscreen>
-          <IonList>
-            {artists}
-          </IonList>          
+          {
+            data ? 
+            <IonList>
+              {artists}
+            </IonList> :
+            <ErrorDisplay
+                message={"Artists not loading right now..."}
+            />
+          }        
         </IonContent>
       </IonPage>
     );
