@@ -47,10 +47,10 @@
 	<true/>
 
 	<key>NSLocationAlwaysUsageDescription</key>
-		<string>We want to track you</string>
+		<string>User position requested</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-		<string>We want your current position</string>
+		<string>User position requested</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-		<string>To show your location</string>
+		<string>User position requested</string>
 </dict>
 </plist>
