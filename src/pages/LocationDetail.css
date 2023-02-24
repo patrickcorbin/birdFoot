@@ -1,10 +1,10 @@
-ion-content.map-detail {
-    background: none;
+.map-detail {
+    --background: none;
 }
 
-IonContent.map-detail {
+/* IonContent.map-detail {
     background: none;
-}
+} */
 
 .map-detail capacitor-google-map {
     display: inline-block;
