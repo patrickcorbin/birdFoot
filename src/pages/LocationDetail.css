@@ -2,6 +2,10 @@ ion-content.map-detail {
     background: none;
 }
 
+IonContent.map-detail {
+    background: none;
+}
+
 .map-detail capacitor-google-map {
     display: inline-block;
     width: 100%;
