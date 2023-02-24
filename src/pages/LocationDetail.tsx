@@ -31,7 +31,7 @@ const LocationDetail: React.FC = () => {
     useIonViewWillEnter(() => createMap())
 
   return (
-    <IonPage className="demo-body">
+    <IonPage className="map-page">
         <IonHeader>
             <IonToolbar>
                 <IonButtons slot="start">
