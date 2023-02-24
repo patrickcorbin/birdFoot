@@ -1,7 +1,6 @@
 import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonToolbar, useIonViewWillEnter } from '@ionic/react';
 import './LocationDetail.css';
 import './demo.css';
-// import { locations } from '../data/locations.js';
 import { useMaps } from '../hooks/useMaps';
 
 import { useParams } from 'react-router';
@@ -27,12 +26,7 @@ const LocationDetail: React.FC = () => {
         }
     ]
 
-    // const locationItem = locations.filter(item => item.id === id)
-
-    // const { mapRef, createMap } = useMaps(locationItem)
     const { mapRef, createMap } = useMaps(locObj)
-
-    // const { title, address, imageFile } = locationItem[0]
 
     useIonViewWillEnter(() => createMap())
 
@@ -45,7 +39,7 @@ const LocationDetail: React.FC = () => {
                 </IonButtons>
             </IonToolbar>
         </IonHeader>
-        <IonContent className="demo-container map-detail" fullscreen>
+        <IonContent className="map-detail" fullscreen>
             {
                 loc ? 
                 <>
