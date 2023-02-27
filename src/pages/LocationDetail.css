@@ -7,7 +7,7 @@
 }
 
 .map-detail {
-    --background: none;
+    --background: red;
 }
 
 /* IonContent.map-detail {
