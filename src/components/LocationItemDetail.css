@@ -1,0 +1,87 @@
+.locationItemDetail__body {
+    padding: 1em 2em;
+    /* border-radius: 15px; */
+    text-align: left;
+    line-height: 1.3rem;
+}
+
+.locationItemDetail__img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.locationItemDetail__body-title {
+    /* display: flex;
+    justify-content: space-between; */
+    display: grid;
+    grid-template-columns: 85% 15%;
+    justify-content: space-between;
+    column-gap: 1em;
+    align-items: center;
+    margin: .75em 0;
+}
+
+.icon-container {
+    justify-self: center;
+}
+
+.locationItemDetail__body-title-main {
+    margin: .2em 0;
+}
+
+.locationItemDetail__body-artist {
+    margin: .25em 0;
+    font-size: 1.25rem;
+    /* font-weight: 600; */
+    margin: .25em 0;
+}
+
+.locationItemDetail__body-date {
+    display: flex;
+    justify-content: space-between;
+    margin: .25em 0 .5em 0;
+}
+
+.locationItemDetail__body-location {
+    display: flex;
+    gap: .5em;
+    align-items: center;
+    /* padding-bottom: 1em; */
+    /* border-bottom: solid .5px rgba(0,0,0,.2); */
+}
+
+.location-text {
+    margin: 0;
+}
+
+.locationItemDetail__description-title {
+    padding-top: 1em;
+    border-top: solid .5px rgba(0,0,0,0.2);
+}
+
+.icon-purple {
+    color: #830053;
+}
+
+IonButton {
+    --background-activated-opacity: .75;
+}
+
+ion-item.itemDetail-item {
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+    /* --color: #830053; */
+}
+
+ion-icon.loc-icon-lg {
+    font-size: 1.5rem;
+}
+
+@media (width >= 750px) {
+    .locationItemDetail__img {
+        height: 400px;
+    }
+}
