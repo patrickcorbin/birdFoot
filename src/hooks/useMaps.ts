@@ -6,11 +6,10 @@ import { GoogleMap } from '@capacitor/google-maps';
 
 export function useMaps(locs: any) {
 
-    // const key = (process.env.REACT_APP_MAP_KEY as string)
+    const key = (process.env.REACT_APP_MAP_KEY as string)
     // const key = (process.env.REACT_APP_TEST_KEY as string) 
     // const key = (process.env.REACT_APP_MAP_KEY_IOS as string)
     // const key = (process.env.REACT_APP_MAP_KEY_ANDROID as string)
-    const key = 'AIzaSyBjdzzC1GBmN9vOHMrHiGjHTwon7MuiBtU'
 
     const [mapConfig, setMapConfig] = useState({
         center: {
