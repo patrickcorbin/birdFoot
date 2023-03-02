@@ -84,12 +84,14 @@ interface ContainerProps {
                 ></IonIcon>
               </div>
             </div>
-            {artistDisplay}
+            {/* {artistDisplay} */}
             <div className="schedItemDetail__body-date">
                 <div>{date}</div>
                 <div>{time}</div>
             </div>
             {locationDisplay}
+            {artists.length > 0 && <h3 className="schedItemDetail__description-title">Featuring:</h3>}
+            {artistDisplay}
             {price && <h3 className="schedItemDetail__description-title">Price:</h3>}
             {priceDisplay}
             {reservationLink && <IonButton color="primary" size='default' expand='block' href={reservationLink} target="_blank">
