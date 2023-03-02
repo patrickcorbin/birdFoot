@@ -7,12 +7,13 @@ interface ContainerProps {
     artist?: string;
     name: string;
     imageFile: string;
+    specialty: string;
   }
 }
 
 const ArtistItem: React.FC<ContainerProps> = ({ item }) => {
 
-  const { id, name, imageFile } = item
+  const { id, name, imageFile, specialty } = item
 
   return (
     <IonItem 
@@ -28,6 +29,9 @@ const ArtistItem: React.FC<ContainerProps> = ({ item }) => {
             <h2 className="sched-item__body-title">
                 {name}
             </h2>
+            <p className="sched-item__body-artist">
+                {specialty}
+            </p>
           </div>
       </IonItem>
     // <div className="artistItem">

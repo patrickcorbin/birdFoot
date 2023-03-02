@@ -29,6 +29,7 @@ const ArtistDetail: React.FC = () => {
                 id={id}
                 artist={data?.name}
                 imageFile={data?.imageFile}
+                specialty={data?.specialty}
                 artistDescription={data?.description}
                 artistWebsite={data?.website}
             /> : 

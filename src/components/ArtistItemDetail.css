@@ -11,6 +11,11 @@
     object-fit: cover;
 }
 
+.artistItemDetail__specialty {
+    font-size: 1.25rem;
+    opacity: .65;
+}
+
 @media (width >= 750px) {
     .artistItemDetail__img {
         height: 500px;

@@ -41,3 +41,7 @@
     margin: 0 0 .2em 0;
     flex-wrap: wrap;
 }
+
+.sched-item__body-artist {
+    opacity: .65;
+}
